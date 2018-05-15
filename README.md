@@ -1,5 +1,5 @@
 # RubiksCubeSolver
-## heading one
+## Welcome!
 Hello and welcome to our project
-### heading two
+## Ideas!
 This is gonna be a Rubik's Cube solver using p5
