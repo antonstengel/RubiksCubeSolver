@@ -24,7 +24,7 @@ Same for counterclockwise.
 */
 
 //defines numbers as 6 sides of the cube
-var front = 0;
+var front = 0; //test
 var up = 1;
 var down = 2;
 var right = 3;
