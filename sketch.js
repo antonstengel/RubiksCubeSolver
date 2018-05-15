@@ -45,6 +45,7 @@ function setup() {
    }
 
    solvedState(cube);
+   randomize(cube);
 
 } //setup
 
@@ -209,19 +210,15 @@ function solvedState(cube) {
       if x + y is odd, piece is edge.
 */
 function randomize(cube) {
-
-var allColors = ['B', 'Y', 'W', 'R', 'O', 'G'];
-
-   for (var s = 0; s < 6; s++) {
-      for (var x = 0; x < 3; x++) {
-         for (var y = 0; y < 3; y++) {
-            var randomNumber = Math.floor(Math.random() * 6); //random number 0-5
-            cube[s][x][y] = allColors[randomNumber]; //random color for each piece
-            cube[s][1][1] = allColors[s]; //sets center pieces to right colors
-         } //y
-      } //x
-   } //s
-
+   for (var i=0; i < 20; i++) {
+      var randomNumber = Math.floor(Math.random() * 6); //random number 0-5
+      if (randomNumber == 0) R(cube);
+      else if (randomNumber == 1) L(cube);
+      else if (randomNumber == 2) D(cube);
+      else if (randomNumber == 3) U(cube);
+      else if (randomNumber == 4) F(cube);
+      else if (randomNumber == 5) B(cube);
+   }
 } //randomize
 
 
