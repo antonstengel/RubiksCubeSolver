@@ -29,9 +29,7 @@ var left = 4;
 var black = 5;
 var cube = new Array(6);
 
-function setup(){
 
-}
 
 function test(){
    return 5;

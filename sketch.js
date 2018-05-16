@@ -44,7 +44,7 @@ function setup() {
       }
    }
 
-   solvedState(cube);
+
    randomize(cube);
 
 } //setup
@@ -113,6 +113,12 @@ function draw() {
 
 
 
+
+
+
+/////////////////////////////////
+//////////LIBRARY STUFF//////////
+/////////////////////////////////
 //checkerboard pattern!
 function checkerboard(cube) {
    solvedState(cube);
@@ -199,17 +205,9 @@ function solvedState(cube) {
    } //y
 } //solvedState
 
-
 //sets the cube to a randomized state
-/*
-   x's and y's of (0,0), (2,0), (2,2), and (0,2) are corner pieces.
-   x's and y's of (1,0), (2,1), (1,1), and (0,1) are edge pieces.
-   x's and y's of (1,1) are center pieces.
-   Easy way to tell what kind of piece it is:
-      if x + y is even and not (1,1), piece is a corner.
-      if x + y is odd, piece is edge.
-*/
 function randomize(cube) {
+   solvedState(cube);
    for (var i=0; i < 20; i++) {
       var randomNumber = Math.floor(Math.random() * 6); //random number 0-5
       if (randomNumber == 0) R(cube);
@@ -222,9 +220,6 @@ function randomize(cube) {
 } //randomize
 
 
-////////////////////////////////////
-//////////LIBRARY OF TURNS//////////
-////////////////////////////////////
 //clockwise rotation of a face
 function faceClock(cube, face){
    //corners
