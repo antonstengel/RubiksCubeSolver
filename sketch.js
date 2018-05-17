@@ -74,9 +74,9 @@ function setup() {
       }
    }
    solvedState(solvedCube); //sets solvedCube to solvedState
-   solvedState(cube);
+   randomize(cube);
    //solves something muddled with 6 rotations (really inefficient—hits a wall at 7)
-   /*
+
       loop1:
          for (var a = 0; a < 12; a++) {
             singleRotation(a);
@@ -138,7 +138,7 @@ function setup() {
             }
             singleRotation(11-a);
          }
-   */
+
 
    var newCube = cube.slice(0);
    R(newCube);
