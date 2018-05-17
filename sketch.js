@@ -21,6 +21,28 @@ Front is blue and up is yellow
 
 All clockwise rotations are clockwise from the angle of looking at the side of the cube.
 Same for counterclockwise.
+
+STUFF FOR TREE:
+
+
+function Node(data) {
+    this.data = data;
+    this.parent = null;
+    this.child = [];
+}
+
+function Tree(data) {
+    var node = new Node(data);
+    this._root = node;
+}
+
+var tree = new Tree(cube);
+
+var cube1 = new R(cube);
+Ri(cube);
+tree._root.child[0] = cube1;
+
+console.log(tree._root);
 */
 
 //defines numbers as 6 sides of the cube
@@ -30,7 +52,9 @@ var down = 2;
 var right = 3;
 var left = 4;
 var back = 5;
+var solvedCube = new Array(6);
 var cube = new Array(6);
+
 
 ////////////////////////
 //////////SETUP/////////
@@ -43,9 +67,84 @@ function setup() {
          cube[s][x] = new Array(3);
       }
    }
+   for (var s = 0; s < 6; s++) { //creates solvedCube, a 6x3x3 array
+      solvedCube[s] = new Array(3);
+      for (var x = 0; x < 3; x++) {
+         solvedCube[s][x] = new Array(3);
+      }
+   }
+   solvedState(solvedCube); //sets solvedCube to solvedState
+   solvedState(cube);
+   //solves something muddled with 6 rotations (really inefficient—hits a wall at 7)
+   /*
+      loop1:
+         for (var a = 0; a < 12; a++) {
+            singleRotation(a);
+
+            if (JSON.stringify(cube) == JSON.stringify(solvedCube)) {
+               console.log(a);
+               //break loop1;
+            }
+
+            for(var b = 0; b < 12; b++) {
+               singleRotation(b);
+
+               if (JSON.stringify(cube) == JSON.stringify(solvedCube)) {
+                  console.log(a + " " + b);
+                  //break loop1;
+               }
+
+               for(var c = 0; c < 12; c++) {
+                  singleRotation(c);
+
+                  if (JSON.stringify(cube) == JSON.stringify(solvedCube)) {
+                     console.log(a + " " + b + " " + c);
+                     //break loop1;
+                  }
+
+                  for(var d = 0; d < 12; d++) {
+                     singleRotation(d);
+
+                     if (JSON.stringify(cube) == JSON.stringify(solvedCube)) {
+                        console.log(a + " " + b + " " + c + " " + d);
+                        //break loop1;
+                     }
+
+                     for(var e = 0; e < 12; e++) {
+                        singleRotation(e);
+
+                        if (JSON.stringify(cube) == JSON.stringify(solvedCube)) {
+                           console.log(a + " " + b + " " + c + " " + d + " " + e);
+                           //break loop1;
+                        }
+
+                        for(var f = 0; f < 12; f++) {
+                           singleRotation(f);
+
+                                          if (JSON.stringify(cube) == JSON.stringify(solvedCube)) {
+                                             console.log(a + " " + b + " " + c + " " + d + " " + e + " " + f);
+                                             //break loop1;
+                                          }
+
+                           singleRotation(11-f);
+                        }
+                        singleRotation(11-e);
+                     }
+                     singleRotation(11-d);
+                  }
+                  singleRotation(11-c);
+               }
+               singleRotation(11-b);
+            }
+            singleRotation(11-a);
+         }
+   */
+
+   var newCube = cube.slice(0);
+   R(newCube);
+   console.log(JSON.stringify(newCube) == JSON.stringify(cube));
 
 
-   randomize(cube);
 
 } //setup
 
@@ -105,7 +204,7 @@ function draw() {
             else if (cube[s][x][y] == 'R') fill(255,0,0);
             else if (cube[s][x][y] == 'O') fill(255,150,0);
             else if (cube[s][x][y] == 'G') fill(0,250,0);
-            rect(smallX + bigX + 50, smallY + bigY + 50, 50, 50, 8);
+            rect(smallX + bigX, smallY + bigY, 50, 50, 8);
          } //y
       } //x
    } //s
@@ -116,9 +215,29 @@ function draw() {
 
 
 
+
+
+
 /////////////////////////////////
 //////////LIBRARY STUFF//////////
 /////////////////////////////////
+//single rotation of cube given number 0-11, 11-givenNumber is the reverse move
+function singleRotation(number){
+   if (number == 0) R(cube);
+   else if (number == 1) L(cube);
+   else if (number == 2) U(cube);
+   else if (number == 3) D(cube);
+   else if (number == 4) F(cube);
+   else if (number == 5) B(cube);
+   else if (number == 6) Bi(cube);
+   else if (number == 7) Fi(cube);
+   else if (number == 8) Di(cube);
+   else if (number == 9) Ui(cube);
+   else if (number == 10) Li(cube);
+   else if (number == 11) Ri(cube);
+}
+
+
 //checkerboard pattern!
 function checkerboard(cube) {
    solvedState(cube);
@@ -208,7 +327,7 @@ function solvedState(cube) {
 //sets the cube to a randomized state
 function randomize(cube) {
    solvedState(cube);
-   for (var i=0; i < 20; i++) {
+   for (var i=0; i < 6; i++) {
       var randomNumber = Math.floor(Math.random() * 6); //random number 0-5
       if (randomNumber == 0) R(cube);
       else if (randomNumber == 1) L(cube);
@@ -300,9 +419,9 @@ function B(cube) {
    for (x = 0; x < 3; x++) {
       temp[x] = cube[up][x][0];
       cube[up][x][0] = cube[right][2][x];
-      cube[right][2][x] = cube[down][x][2];
-      cube[down][x][2] = cube[left][0][x];
-      cube[left][0][x] = temp[x];
+      cube[right][2][x] = cube[down][2-x][2];
+      cube[down][2-x][2] = cube[left][0][2-x];
+      cube[left][0][2-x] = temp[x];
    }
 
    faceClock(cube, back);
