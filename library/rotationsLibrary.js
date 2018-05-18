@@ -31,6 +31,237 @@ var cube = new Array(6);
 
 
 
+//solves white cross
+function solveCross(cube){
+
+   //a through b
+   for (var a = -1; a < 12; a++) {
+      singleRotation(a);
+
+      for(var b = -1; b < 12; b++) {
+         singleRotation(b);
+
+         if ((cube[down][1][0] == 'W') && (cube[down][0][1] == 'W') && (cube[down][1][2] == 'W') && (cube[down][2][1] == 'W') && (cube[front][1][2] == 'B') && (cube[left][1][2] == 'O') && (cube[right][1][1] == 'R')  && (cube[back][1][2] == 'G')) {
+            console.log(a + " " + b);
+            console.log(outputCross(a, b, -1, -1, -1, -1, -1));
+            return;
+         }
+
+         singleRotation(11-b);
+      } //b
+      singleRotation(11-a);
+   } //a
+
+   console.log("b");
+
+   //a through c
+   for (var a = -1; a < 12; a++) {
+      singleRotation(a);
+
+      for(var b = -1; b < 12; b++) {
+         singleRotation(b);
+
+         for(var c = -1; c < 12; c++) {
+            singleRotation(c);
+
+            if ((cube[down][1][0] == 'W') && (cube[down][0][1] == 'W') && (cube[down][1][2] == 'W') && (cube[down][2][1] == 'W') && (cube[front][1][2] == 'B') && (cube[left][1][2] == 'O') && (cube[right][1][1] == 'R')  && (cube[back][1][2] == 'G')) {
+               console.log(a + " " + b + " " + c);
+               console.log(outputCross(a, b, c, -1, -1, -1, -1));
+               return;
+            }
+
+            singleRotation(11-c);
+         } //c
+         singleRotation(11-b);
+      } //b
+      singleRotation(11-a);
+   } //a
+
+   console.log("c");
+
+   //a through d
+   for (var a = -1; a < 12; a++) {
+      singleRotation(a);
+
+      for(var b = -1; b < 12; b++) {
+         singleRotation(b);
+
+         for(var c = -1; c < 12; c++) {
+            singleRotation(c);
+
+            for(var d = -1; d < 12; d++) {
+               singleRotation(d);
+
+               if ((cube[down][1][0] == 'W') && (cube[down][0][1] == 'W') && (cube[down][1][2] == 'W') && (cube[down][2][1] == 'W') && (cube[front][1][2] == 'B') && (cube[left][1][2] == 'O') && (cube[right][1][1] == 'R')  && (cube[back][1][2] == 'G')) {
+                  console.log(a + " " + b + " " + c + " " + d);
+                  console.log(outputCross(a, b, c, d, -1, -1, -1));
+                  return;
+               }
+
+               singleRotation(11-d);
+            } //d
+            singleRotation(11-c);
+         } //c
+         singleRotation(11-b);
+      } //b
+      singleRotation(11-a);
+   } //a
+
+   console.log("d");
+
+   //a through e
+   for (var a = -1; a < 12; a++) {
+      singleRotation(a);
+
+      for(var b = -1; b < 12; b++) {
+         singleRotation(b);
+
+         for(var c = -1; c < 12; c++) {
+            singleRotation(c);
+
+            for(var d = -1; d < 12; d++) {
+               singleRotation(d);
+
+               for(var e = -1; d < 12; d++) {
+                  singleRotation(e);
+
+                  if ((cube[down][1][0] == 'W') && (cube[down][0][1] == 'W') && (cube[down][1][2] == 'W') && (cube[down][2][1] == 'W') && (cube[front][1][2] == 'B') && (cube[left][1][2] == 'O') && (cube[right][1][1] == 'R')  && (cube[back][1][2] == 'G')) {
+                     console.log(a + " " + b + " " + c + " " + d + " " + e);
+                     console.log(outputCross(a, b, c, d, e, -1, -1));
+                     return;
+                  }
+
+                  singleRotation(11-e);
+               } //e
+               singleRotation(11-d);
+            } //d
+            singleRotation(11-c);
+         } //c
+         singleRotation(11-b);
+      } //b
+      singleRotation(11-a);
+   } //a
+
+   console.log("e");
+
+   //a through f
+   for (var a = -1; a < 12; a++) {
+      singleRotation(a);
+
+      for(var b = -1; b < 12; b++) {
+         singleRotation(b);
+
+         for(var c = -1; c < 12; c++) {
+            singleRotation(c);
+
+            for(var d = -1; d < 12; d++) {
+               singleRotation(d);
+
+               for(var e = -1; d < 12; d++) {
+                  singleRotation(e);
+
+                  for(var f = -1; f < 12; f++){
+                     singleRotation(f);
+
+                     if ((cube[down][1][0] == 'W') && (cube[down][0][1] == 'W') && (cube[down][1][2] == 'W') && (cube[down][2][1] == 'W') && (cube[front][1][2] == 'B') && (cube[left][1][2] == 'O') && (cube[right][1][1] == 'R')  && (cube[back][1][2] == 'G')) {
+                        console.log(a + " " + b + " " + c + " " + d + " " + e + " " + f);
+                        console.log(outputCross(a, b, c, d, e, f, -1));
+                        return;
+                     }
+
+                     singleRotation(11-f);
+                  } //f
+                  singleRotation(11-e);
+               } //e
+               singleRotation(11-d);
+            } //d
+            singleRotation(11-c);
+         } //c
+         singleRotation(11-b);
+      } //b
+      singleRotation(11-a);
+   } //a
+
+   console.log("f");
+
+   //a through g
+   for (var a = -1; a < 12; a++) {
+      singleRotation(a);
+
+      for(var b = -1; b < 12; b++) {
+         singleRotation(b);
+
+         for(var c = -1; c < 12; c++) {
+            singleRotation(c);
+
+            for(var d = -1; d < 12; d++) {
+               singleRotation(d);
+
+               for(var e = -1; e < 12; e++) {
+                  singleRotation(e);
+
+                  for(var f = -1; f < 12; f++) {
+                     singleRotation(f);
+
+                     for(var g = 0; g < 12; g++) {
+                        singleRotation(g);
+
+                        if ((cube[down][1][0] == 'W') && (cube[down][0][1] == 'W') && (cube[down][1][2] == 'W') && (cube[down][2][1] == 'W') && (cube[front][1][2] == 'B') && (cube[left][1][2] == 'O') && (cube[right][1][1] == 'R')  && (cube[back][1][2] == 'G')) {
+                           console.log(a + " " + b + " " + c + " " + d + " " + e + " " + f + " " + g);
+                           console.log(outputCross(a, b, c, d, e, f, g));
+                           return;
+                        }
+
+                        singleRotation(11-g);
+                     }
+                     singleRotation(11-f);
+                  }
+                  singleRotation(11-e);
+               }
+               singleRotation(11-d);
+            }
+            singleRotation(11-c);
+         }
+         singleRotation(11-b);
+      }
+      singleRotation(11-a);
+   }
+} //end of solveCross
+
+//outputs blue cross values
+function outputCross(a, b, c, d, e, f, g){
+   var input = [a, b, c, d, e, f, g];
+   //var output = new Array(7);
+   var output = ["right", "left", "left", "left", "left", "left", "left"];
+
+   for(var i = 0; i < 7; i++) {
+      if(input[i] == -1) output[i] = "";
+      else if(input[i] == 0) output[i] = "right, ";
+      else if(input[i] == 1) output[i] = "left, ";
+      else if(input[i] == 2) output[i] = "up, ";
+      else if(input[i] == 3) output[i] = "down, ";
+      else if(input[i] == 4) output[i] = "front, ";
+      else if(input[i] == 5) output[i] = "back, ";
+      else if(input[i] == 6) output[i] = "back inverted, ";
+      else if(input[i] == 7) output[i] = "front inverted, ";
+      else if(input[i] == 8) output[i] = "down inverted, ";
+      else if(input[i] == 9) output[i] = "up inverted, ";
+      else if(input[i] == 10) output[i] = "left inverted, ";
+      else if(input[i] == 11) output[i] = "right inverted, ";
+   }
+
+   var response = output[0] + output[1] + output[2] + output[3] + " " + output[4] + output[5] + output[6];
+
+   console.log(response);
+}
+
+
+
+
+
+
+
+
 //single rotation of cube given number 0-11, 11-givenNumber is the reverse move
 function singleRotation(number){
    if (number == 0) R(cube);

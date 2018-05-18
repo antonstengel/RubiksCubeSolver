@@ -67,20 +67,34 @@ function setup() {
       }
    }
 
+   randomize(cube);
 
-   solvedState(cube);
-   Ri(cube);
-   Di(cube);
-   R(cube);
-   D(cube);
-   U(cube);
-   Li(cube);
-   Ui(cube);
+   solveCross(cube);
 
-   //solveCross(cube);
 
 
 } //setup
+
+
+
+function solveCorners(cube) {
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
 
 
 ////////////////////////
@@ -143,79 +157,3 @@ function draw() {
       } //x
    } //s
 } //draw
-
-
-
-function solveCross(cube){
-   for (var a = 0; a < 12; a++) {
-      singleRotation(a);
-
-      if ((cube[front][1][1] == cube[front][1][0]) && (cube[front][1][1] == cube[front][0][1]) && (cube[front][1][1] == cube[front][2][1]) && (cube[front][1][1] == cube[front][1][2])) {
-         console.log(a);
-         return;
-      }
-
-      }
-
-      for(var b = 0; b < 12; b++) {
-         singleRotation(b);
-
-         if ((cube[front][1][1] == cube[front][1][0]) && (cube[front][1][1] == cube[front][0][1]) && (cube[front][1][1] == cube[front][2][1]) && (cube[front][1][1] == cube[front][1][2])) {
-            console.log(a + " " + b);
-            return;
-         }
-
-         for(var c = 0; c < 12; c++) {
-            singleRotation(c);
-
-            if ((cube[front][1][1] == cube[front][1][0]) && (cube[front][1][1] == cube[front][0][1]) && (cube[front][1][1] == cube[front][2][1]) && (cube[front][1][1] == cube[front][1][2])) {
-               console.log(a + " " + b + " " + c);
-               return;
-            }
-
-            for(var d = 0; d < 12; d++) {
-               singleRotation(d);
-
-               if ((cube[front][1][1] == cube[front][1][0]) && (cube[front][1][1] == cube[front][0][1]) && (cube[front][1][1] == cube[front][2][1]) && (cube[front][1][1] == cube[front][1][2])) {
-                  console.log(a + " " + b + " " + c + " " + d);
-                  return;
-               }
-
-               for(var e = 0; e < 12; e++) {
-                  singleRotation(e);
-
-                  if ((cube[front][1][1] == cube[front][1][0]) && (cube[front][1][1] == cube[front][0][1]) && (cube[front][1][1] == cube[front][2][1]) && (cube[front][1][1] == cube[front][1][2])) {
-                     console.log(a + " " + b + " " + c + " " + d + " " + e);
-                     return;
-                  }
-
-                  for(var f = 0; f < 12; f++) {
-                     singleRotation(f);
-
-                     if ((cube[front][1][1] == cube[front][1][0]) && (cube[front][1][1] == cube[front][0][1]) && (cube[front][1][1] == cube[front][2][1]) && (cube[front][1][1] == cube[front][1][2])) {
-                        console.log(a + " " + b + " " + c + " " + d + " " + e + " " + f);
-                        return;
-                     }
-
-                     for(var g = 0; g < 12; g++) {
-                        singleRotation(g);
-
-                        if ((cube[front][1][1] == cube[front][1][0]) && (cube[front][1][1] == cube[front][0][1]) && (cube[front][1][1] == cube[front][2][1]) && (cube[front][1][1] == cube[front][1][2])) {
-                           console.log(a + " " + b + " " + c + " " + d + " " + e + " " + f + " " + g);
-                           return;
-                        }
-
-                     singleRotation(11-g);
-                     }
-                  singleRotation(11-f);
-                  }
-               singleRotation(11-e);
-               }
-            singleRotation(11-d);
-            }
-         singleRotation(11-c);
-         }
-      singleRotation(11-b);
-      }
-   singleRotation(11-a);
-}
