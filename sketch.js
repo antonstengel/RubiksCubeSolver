@@ -52,7 +52,6 @@ var down = 2;
 var right = 3;
 var left = 4;
 var back = 5;
-var solvedCube = new Array(6);
 var cube = new Array(6);
 
 
@@ -67,162 +66,18 @@ function setup() {
          cube[s][x] = new Array(3);
       }
    }
-   for (var s = 0; s < 6; s++) { //creates solvedCube, a 6x3x3 array
-      solvedCube[s] = new Array(3);
-      for (var x = 0; x < 3; x++) {
-         solvedCube[s][x] = new Array(3);
-      }
-   }
-   solvedState(solvedCube); //sets solvedCube to solvedState
-   randomize(cube);
-   //solves something muddled with 6 rotations (really inefficient—hits a wall at 7)
 
 
-/*
-      loop1:
-         for (var a = 0; a < 12; a++) {
-            singleRotation(a);
+   solvedState(cube);
+   Ri(cube);
+   Di(cube);
+   R(cube);
+   D(cube);
+   U(cube);
+   Li(cube);
+   Ui(cube);
 
-            if (JSON.stringify(cube) == JSON.stringify(solvedCube)) {
-               console.log(a);
-               //break loop1;
-            }
-
-            for(var b = 0; b < 12; b++) {
-               singleRotation(b);
-
-               if (JSON.stringify(cube) == JSON.stringify(solvedCube)) {
-                  console.log(a + " " + b);
-                  //break loop1;
-               }
-
-               for(var c = 0; c < 12; c++) {
-                  singleRotation(c);
-
-                  if (JSON.stringify(cube) == JSON.stringify(solvedCube)) {
-                     console.log(a + " " + b + " " + c);
-                     //break loop1;
-                  }
-
-                  for(var d = 0; d < 12; d++) {
-                     singleRotation(d);
-
-                     if (JSON.stringify(cube) == JSON.stringify(solvedCube)) {
-                        console.log(a + " " + b + " " + c + " " + d);
-                        //break loop1;
-                     }
-
-                     for(var e = 0; e < 12; e++) {
-                        singleRotation(e);
-
-                        if (JSON.stringify(cube) == JSON.stringify(solvedCube)) {
-                           console.log(a + " " + b + " " + c + " " + d + " " + e);
-                           //break loop1;
-                        }
-
-                        for(var f = 0; f < 12; f++) {
-                           singleRotation(f);
-
-                                          if (JSON.stringify(cube) == JSON.stringify(solvedCube)) {
-                                             console.log(a + " " + b + " " + c + " " + d + " " + e + " " + f);
-                                             //break loop1;
-                                          }
-
-                           singleRotation(11-f);
-                        }
-                        singleRotation(11-e);
-                     }
-                     singleRotation(11-d);
-                  }
-                  singleRotation(11-c);
-               }
-               singleRotation(11-b);
-            }
-            singleRotation(11-a);
-         }
-*/
-
-
-      loop2:
-         for (var a = 0; a < 12; a++) {
-            singleRotation(a);
-
-            if ((cube[front][1][1] == cube[front][1][0]) && (cube[front][1][1] == cube[front][0][1]) && (cube[front][1][1] == cube[front][2][1]) && (cube[front][1][1] == cube[front][1][2])){
-               console.log(a);
-               break loop2;
-            }
-
-            }
-
-            for(var b = 0; b < 12; b++) {
-               singleRotation(b);
-
-               if ((cube[front][1][1] == cube[front][1][0]) && (cube[front][1][1] == cube[front][0][1]) && (cube[front][1][1] == cube[front][2][1]) && (cube[front][1][1] == cube[front][1][2])) {
-                  console.log(a + " " + b);
-                  break loop2;
-               }
-
-               for(var c = 0; c < 12; c++) {
-                  singleRotation(c);
-
-                  if ((cube[front][1][1] == cube[front][1][0]) && (cube[front][1][1] == cube[front][0][1]) && (cube[front][1][1] == cube[front][2][1]) && (cube[front][1][1] == cube[front][1][2])) {
-                     console.log(a + " " + b + " " + c);
-                     break loop2;
-                  }
-
-                  for(var d = 0; d < 12; d++) {
-                     singleRotation(d);
-
-                     if ((cube[front][1][1] == cube[front][1][0]) && (cube[front][1][1] == cube[front][0][1]) && (cube[front][1][1] == cube[front][2][1]) && (cube[front][1][1] == cube[front][1][2])) {
-                        console.log(a + " " + b + " " + c + " " + d);
-                        break loop2;
-                     }
-
-                     for(var e = 0; e < 12; e++) {
-                        singleRotation(e);
-
-                        if ((cube[front][1][1] == cube[front][1][0]) && (cube[front][1][1] == cube[front][0][1]) && (cube[front][1][1] == cube[front][2][1]) && (cube[front][1][1] == cube[front][1][2])) {
-                           console.log(a + " " + b + " " + c + " " + d + " " + e);
-                           break loop2;
-                        }
-
-                        for(var f = 0; f < 12; f++) {
-                           singleRotation(f);
-
-                                          if ((cube[front][1][1] == cube[front][1][0]) && (cube[front][1][1] == cube[front][0][1]) && (cube[front][1][1] == cube[front][2][1]) && (cube[front][1][1] == cube[front][1][2])) {
-                                             console.log(a + " " + b + " " + c + " " + d + " " + e + " " + f);
-                                             break loop2;
-                                          }
-
-                           for(var g = 0; g < 12; g++) {
-                              singleRotation(g);
-
-                                             if ((cube[front][1][1] == cube[front][1][0]) && (cube[front][1][1] == cube[front][0][1]) && (cube[front][1][1] == cube[front][2][1]) && (cube[front][1][1] == cube[front][1][2])) {
-                                                console.log(a + " " + b + " " + c + " " + d + " " + e + " " + f + " " + g);
-                                                break loop2;
-                                             }
-
-                              singleRotation(11-g);
-                           }
-
-                           singleRotation(11-f);
-                        }
-                        singleRotation(11-e);
-                     }
-                     singleRotation(11-d);
-                  }
-                  singleRotation(11-c);
-               }
-               singleRotation(11-b);
-            }
-            singleRotation(11-a);
-
-
-
-   var newCube = cube.slice(0);
-   R(newCube);
-   //console.log(JSON.stringify(newCube) == JSON.stringify(cube));
-
+   //solveCross(cube);
 
 
 } //setup
@@ -291,374 +146,76 @@ function draw() {
 
 
 
+function solveCross(cube){
+   for (var a = 0; a < 12; a++) {
+      singleRotation(a);
 
+      if ((cube[front][1][1] == cube[front][1][0]) && (cube[front][1][1] == cube[front][0][1]) && (cube[front][1][1] == cube[front][2][1]) && (cube[front][1][1] == cube[front][1][2])) {
+         console.log(a);
+         return;
+      }
 
+      }
 
+      for(var b = 0; b < 12; b++) {
+         singleRotation(b);
 
+         if ((cube[front][1][1] == cube[front][1][0]) && (cube[front][1][1] == cube[front][0][1]) && (cube[front][1][1] == cube[front][2][1]) && (cube[front][1][1] == cube[front][1][2])) {
+            console.log(a + " " + b);
+            return;
+         }
 
+         for(var c = 0; c < 12; c++) {
+            singleRotation(c);
 
-/////////////////////////////////
-//////////LIBRARY STUFF//////////
-/////////////////////////////////
-//single rotation of cube given number 0-11, 11-givenNumber is the reverse move
-function singleRotation(number){
-   if (number == 0) R(cube);
-   else if (number == 1) L(cube);
-   else if (number == 2) U(cube);
-   else if (number == 3) D(cube);
-   else if (number == 4) F(cube);
-   else if (number == 5) B(cube);
-   else if (number == 6) Bi(cube);
-   else if (number == 7) Fi(cube);
-   else if (number == 8) Di(cube);
-   else if (number == 9) Ui(cube);
-   else if (number == 10) Li(cube);
-   else if (number == 11) Ri(cube);
-}
+            if ((cube[front][1][1] == cube[front][1][0]) && (cube[front][1][1] == cube[front][0][1]) && (cube[front][1][1] == cube[front][2][1]) && (cube[front][1][1] == cube[front][1][2])) {
+               console.log(a + " " + b + " " + c);
+               return;
+            }
 
+            for(var d = 0; d < 12; d++) {
+               singleRotation(d);
 
-//checkerboard pattern!
-function checkerboard(cube) {
-   solvedState(cube);
-   R(cube);
-   R(cube);
-   L(cube);
-   L(cube);
-   U(cube);
-   U(cube);
-   D(cube);
-   D(cube);
-   F(cube);
-   F(cube);
-   B(cube);
-   B(cube);
-}
+               if ((cube[front][1][1] == cube[front][1][0]) && (cube[front][1][1] == cube[front][0][1]) && (cube[front][1][1] == cube[front][2][1]) && (cube[front][1][1] == cube[front][1][2])) {
+                  console.log(a + " " + b + " " + c + " " + d);
+                  return;
+               }
 
-//changed-center pattern!
-function changeMiddles(cube) {
-   solvedState(cube);
-   R(cube);
-   Li(cube);
-   F(cube);
-   Bi(cube);
-   U(cube);
-   Di(cube);
-   R(cube);
-   Li(cube);
-}
+               for(var e = 0; e < 12; e++) {
+                  singleRotation(e);
 
-//checkerboard and changed-center pattern!
-function checkerAndMiddles(cube) {
-   solvedState(cube);
-   R(cube);
-   R(cube);
-   L(cube);
-   L(cube);
-   U(cube);
-   U(cube);
-   D(cube);
-   D(cube);
-   F(cube);
-   F(cube);
-   B(cube);
-   B(cube);
-   R(cube);
-   Li(cube);
-   F(cube);
-   Bi(cube);
-   U(cube);
-   Di(cube);
-   R(cube);
-   Li(cube);
-}
+                  if ((cube[front][1][1] == cube[front][1][0]) && (cube[front][1][1] == cube[front][0][1]) && (cube[front][1][1] == cube[front][2][1]) && (cube[front][1][1] == cube[front][1][2])) {
+                     console.log(a + " " + b + " " + c + " " + d + " " + e);
+                     return;
+                  }
 
+                  for(var f = 0; f < 12; f++) {
+                     singleRotation(f);
 
-//sets the cube to a solved state
-function solvedState(cube) {
-   for (var s = 0; s < 6; s++){
-      for (var x = 0; x < 3; x++){
-         for (var y = 0; y < 3; y++){
-            switch(s){
-               case front:
-                  cube[s][x][y] = 'B';
-                  break;
-               case up:
-                  cube[s][x][y] = 'Y';
-                  break;
-               case down:
-                  cube[s][x][y] = 'W';
-                  break;
-               case right:
-                  cube[s][x][y] = 'R';
-                  break;
-               case left:
-                  cube[s][x][y] = 'O';
-                  break;
-               case back:
-                  cube[s][x][y] = 'G';
-                  break;
-            } //switch
-         } //s
-      } //x
-   } //y
-} //solvedState
+                     if ((cube[front][1][1] == cube[front][1][0]) && (cube[front][1][1] == cube[front][0][1]) && (cube[front][1][1] == cube[front][2][1]) && (cube[front][1][1] == cube[front][1][2])) {
+                        console.log(a + " " + b + " " + c + " " + d + " " + e + " " + f);
+                        return;
+                     }
 
-//sets the cube to a randomized state
-function randomize(cube) {
-   solvedState(cube);
-   for (var i=0; i < 20; i++) {
-      var randomNumber = Math.floor(Math.random() * 6); //random number 0-5
-      if (randomNumber == 0) R(cube);
-      else if (randomNumber == 1) L(cube);
-      else if (randomNumber == 2) D(cube);
-      else if (randomNumber == 3) U(cube);
-      else if (randomNumber == 4) F(cube);
-      else if (randomNumber == 5) B(cube);
-   }
-} //randomize
+                     for(var g = 0; g < 12; g++) {
+                        singleRotation(g);
 
+                        if ((cube[front][1][1] == cube[front][1][0]) && (cube[front][1][1] == cube[front][0][1]) && (cube[front][1][1] == cube[front][2][1]) && (cube[front][1][1] == cube[front][1][2])) {
+                           console.log(a + " " + b + " " + c + " " + d + " " + e + " " + f + " " + g);
+                           return;
+                        }
 
-//clockwise rotation of a face
-function faceClock(cube, face){
-   //corners
-   var temp = cube[face][0][0];
-   cube[face][0][0] = cube[face][0][2];
-   cube[face][0][2] = cube[face][2][2];
-   cube[face][2][2] = cube[face][2][0];
-   cube[face][2][0] = temp;
-
-
-   //edges
-   var temp = cube[face][1][0];
-   cube[face][1][0] = cube[face][0][1];
-   cube[face][0][1] = cube[face][1][2];
-   cube[face][1][2] = cube[face][2][1];
-   cube[face][2][1] = temp;
-}
-
-//counterclockwise rotation of a face
-function faceCounter(cube, face){
-   //corners
-   var temp = cube[face][0][0];
-   cube[face][0][0] = cube[face][2][0];
-   cube[face][2][0] = cube[face][2][2];
-   cube[face][2][2] = cube[face][0][2];
-   cube[face][0][2] = temp;
-
-   //edges
-   var temp = cube[face][1][0];
-   cube[face][1][0] = cube[face][2][1];
-   cube[face][2][1] = cube[face][1][2]
-   cube[face][1][2] = cube[face][0][1]
-   cube[face][0][1] = temp;
-}
-
-
-//clockwise rotation of front face
-function F(cube) {
-   var temp = new Array(3);
-   var x; //counter
-
-   //move the outer edges affected by the rotation
-   for (x = 0; x < 3; x++) {
-      temp[x] = cube[up][x][2];
-         cube[up][x][2] = cube[left][2][2-x];
-         cube[left][2][2-x] = cube[down][2-x][0];
-         cube[down][2-x][0] = cube[right][0][x];
-         cube[right][0][x] = temp[x];
-   }
-
-   faceClock(cube, front);
-} //frontClock
-
-//counterclockwise rotation of front face
-function Fi(cube) {
-   var temp = new Array(3);
-   var x; //counter
-
-    //move the edges affected by the rotation
-   for (x = 0; x < 3; x++) {
-      temp[x] = cube[right][0][x];
-      cube[right][0][x] = cube[down][2-x][0];
-      cube[down][2-x][0] = cube[left][2][2-x];
-      cube[left][2][2-x] = cube[up][x][2];
-      cube[up][x][2] = temp[x];
-   }
-
-   faceCounter(cube, front);
-} //frontClock
-
-
-//clockwise rotation of back face
-function B(cube) {
-   var temp = new Array(3);
-   var x; //counter
-
-   //move the outer edges affected by the rotation
-   for (x = 0; x < 3; x++) {
-      temp[x] = cube[up][x][0];
-      cube[up][x][0] = cube[right][2][x];
-      cube[right][2][x] = cube[down][2-x][2];
-      cube[down][2-x][2] = cube[left][0][2-x];
-      cube[left][0][2-x] = temp[x];
-   }
-
-   faceClock(cube, back);
-} //frontClock
-
-//clockwise rotation of back face
-function Bi(cube) {
-   var temp = new Array(3);
-   var x; //counter
-
-   //move the outer edges affected by the rotation
-   for (x = 0; x < 3; x++) {
-      temp[x] = cube[up][x][0];
-      cube[up][x][0] = cube[left][0][2-x];
-      cube[left][0][2-x] = cube[down][2-x][2];
-      cube[down][2-x][2] = cube[right][2][x];
-      cube[right][2][x] = temp[x];
-   }
-
-   faceCounter(cube, back);
-} //frontClock
-
-
-//clockwise rotation of up face
-function U(cube) {
-   var temp = new Array(3);
-   var x; //counter
-
-   //move the outer edges affected by the rotation
-   for (x = 0; x < 3; x++) {
-      temp[x] = cube[front][x][0];
-         cube[front][x][0] = cube[right][x][0];
-         cube[right][x][0] = cube[back][x][0];
-         cube[back][x][0] = cube[left][x][0];
-         cube[left][x][0] = temp[x];
-   }
-
-   faceClock(cube, up);
-}
-
-//counterclockwise rotation of up face
-function Ui(cube) {
-   var temp = new Array(3);
-   var x; //counter
-
-   //move the outer edges affected by the rotation
-   for (x = 0; x < 3; x++) {
-      temp[x] = cube[front][x][0];
-      cube[front][x][0] = cube[left][x][0];
-      cube[left][x][0] = cube[back][x][0];
-      cube[back][x][0] = cube[right][x][0];
-      cube[right][x][0] = temp[x];
-   }
-
-   faceCounter(cube, up);
-}
-
-
-//clockwise rotation of down face
-function D(cube) {
-   var temp = new Array(3);
-   var x; //counter
-
-   //move the outer edges affected by the rotation
-   for (x = 0; x < 3; x++) {
-      temp[x] = cube[front][x][2];
-      cube[front][x][2] = cube[left][x][2];
-      cube[left][x][2] = cube[back][x][2];
-      cube[back][x][2] = cube[right][x][2];
-      cube[right][x][2] = temp[x];
-   }
-
-   faceClock(cube, down);
-}
-
-//counterclockwise rotation of down face
-function Di(cube) {
-   var temp = new Array(3);
-   var x; //counter
-
-   //move the outer edges affected by the rotation
-   for (x = 0; x < 3; x++) {
-      temp[x] = cube[front][x][2];
-      cube[front][x][2] = cube[right][x][2];
-      cube[right][x][2] = cube[back][x][2];
-      cube[back][x][2] = cube[left][x][2];
-      cube[left][x][2] = temp[x];
-   }
-
-   faceCounter(cube, down);
-}
-
-
-//clockwise rotation of right face
-function R(cube) {
-   var temp = new Array(3);
-   var x; //counter
-
-   //move the outer edges affected by the rotation
-   for (x = 0; x < 3; x++) {
-      temp[x] = cube[front][2][x];
-      cube[front][2][x] = cube[down][2][x];
-      cube[down][2][x] = cube[back][0][2-x];
-      cube[back][0][2-x] = cube[up][2][x];
-      cube[up][2][x] = temp[x];
-   }
-
-   faceClock(cube, right);
-}
-
-//counterclockwise rotation of right face
-function Ri(cube) {
-   var temp = new Array(3);
-   var x; //counter
-
-   //move the outer edges affected by the rotation
-   for (x = 0; x < 3; x++) {
-      temp[x] = cube[front][2][x];
-      cube[front][2][x] = cube[up][2][x];
-      cube[up][2][x] = cube[back][0][2-x];
-      cube[back][0][2-x] = cube[down][2][x];
-      cube[down][2][x] = temp[x];
-   }
-
-   faceCounter(cube, right);
-}
-
-
-//clockwise rotation of left face
-function L(cube) {
-   var temp = new Array(3);
-   var x; //counter
-
-   //move the outer edges affected by the rotation
-   for (x = 0; x < 3; x++) {
-      temp[x] = cube[front][0][x];
-      cube[front][0][x] = cube[up][0][x];
-      cube[up][0][x] = cube[back][2][2-x];
-      cube[back][2][2-x] = cube[down][0][x];
-      cube[down][0][x] = temp[x];
-   }
-
-   faceClock(cube, left);
-}
-
-//counterclockwise rotation of left face
-function Li(cube) {
-   var temp = new Array(3);
-   var x; //counter
-
-   //move the outer edges affected by the rotation
-   for (x = 0; x < 3; x++) {
-      temp[x] = cube[front][0][x];
-      cube[front][0][x] = cube[down][0][x];
-      cube[down][0][x] = cube[back][2][2-x];
-      cube[back][2][2-x] = cube[up][0][x];
-      cube[up][0][x] = temp[x];
-   }
-
-   faceCounter(cube, left);
+                     singleRotation(11-g);
+                     }
+                  singleRotation(11-f);
+                  }
+               singleRotation(11-e);
+               }
+            singleRotation(11-d);
+            }
+         singleRotation(11-c);
+         }
+      singleRotation(11-b);
+      }
+   singleRotation(11-a);
 }
