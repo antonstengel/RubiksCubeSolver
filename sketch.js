@@ -77,6 +77,8 @@ function setup() {
    randomize(cube);
    //solves something muddled with 6 rotations (really inefficient—hits a wall at 7)
 
+
+/*
       loop1:
          for (var a = 0; a < 12; a++) {
             singleRotation(a);
@@ -138,11 +140,88 @@ function setup() {
             }
             singleRotation(11-a);
          }
+*/
+
+
+      loop2:
+         for (var a = 0; a < 12; a++) {
+            singleRotation(a);
+
+            if ((cube[front][1][1] == cube[front][1][0]) && (cube[front][1][1] == cube[front][0][1]) && (cube[front][1][1] == cube[front][2][1]) && (cube[front][1][1] == cube[front][1][2])){
+               console.log(a);
+               break loop2;
+            }
+
+            }
+
+            for(var b = 0; b < 12; b++) {
+               singleRotation(b);
+
+               if ((cube[front][1][1] == cube[front][1][0]) && (cube[front][1][1] == cube[front][0][1]) && (cube[front][1][1] == cube[front][2][1]) && (cube[front][1][1] == cube[front][1][2])) {
+                  console.log(a + " " + b);
+                  break loop2;
+               }
+
+               for(var c = 0; c < 12; c++) {
+                  singleRotation(c);
+
+                  if ((cube[front][1][1] == cube[front][1][0]) && (cube[front][1][1] == cube[front][0][1]) && (cube[front][1][1] == cube[front][2][1]) && (cube[front][1][1] == cube[front][1][2])) {
+                     console.log(a + " " + b + " " + c);
+                     break loop2;
+                  }
+
+                  for(var d = 0; d < 12; d++) {
+                     singleRotation(d);
+
+                     if ((cube[front][1][1] == cube[front][1][0]) && (cube[front][1][1] == cube[front][0][1]) && (cube[front][1][1] == cube[front][2][1]) && (cube[front][1][1] == cube[front][1][2])) {
+                        console.log(a + " " + b + " " + c + " " + d);
+                        break loop2;
+                     }
+
+                     for(var e = 0; e < 12; e++) {
+                        singleRotation(e);
+
+                        if ((cube[front][1][1] == cube[front][1][0]) && (cube[front][1][1] == cube[front][0][1]) && (cube[front][1][1] == cube[front][2][1]) && (cube[front][1][1] == cube[front][1][2])) {
+                           console.log(a + " " + b + " " + c + " " + d + " " + e);
+                           break loop2;
+                        }
+
+                        for(var f = 0; f < 12; f++) {
+                           singleRotation(f);
+
+                                          if ((cube[front][1][1] == cube[front][1][0]) && (cube[front][1][1] == cube[front][0][1]) && (cube[front][1][1] == cube[front][2][1]) && (cube[front][1][1] == cube[front][1][2])) {
+                                             console.log(a + " " + b + " " + c + " " + d + " " + e + " " + f);
+                                             break loop2;
+                                          }
+
+                           for(var g = 0; g < 12; g++) {
+                              singleRotation(g);
+
+                                             if ((cube[front][1][1] == cube[front][1][0]) && (cube[front][1][1] == cube[front][0][1]) && (cube[front][1][1] == cube[front][2][1]) && (cube[front][1][1] == cube[front][1][2])) {
+                                                console.log(a + " " + b + " " + c + " " + d + " " + e + " " + f + " " + g);
+                                                break loop2;
+                                             }
+
+                              singleRotation(11-g);
+                           }
+
+                           singleRotation(11-f);
+                        }
+                        singleRotation(11-e);
+                     }
+                     singleRotation(11-d);
+                  }
+                  singleRotation(11-c);
+               }
+               singleRotation(11-b);
+            }
+            singleRotation(11-a);
+
 
 
    var newCube = cube.slice(0);
    R(newCube);
-   console.log(JSON.stringify(newCube) == JSON.stringify(cube));
+   //console.log(JSON.stringify(newCube) == JSON.stringify(cube));
 
 
 
@@ -327,7 +406,7 @@ function solvedState(cube) {
 //sets the cube to a randomized state
 function randomize(cube) {
    solvedState(cube);
-   for (var i=0; i < 6; i++) {
+   for (var i=0; i < 20; i++) {
       var randomNumber = Math.floor(Math.random() * 6); //random number 0-5
       if (randomNumber == 0) R(cube);
       else if (randomNumber == 1) L(cube);
