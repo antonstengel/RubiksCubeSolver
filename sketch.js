@@ -71,6 +71,8 @@ function setup() {
 
    solveCross(cube);
 
+   solveCorners(cube);
+
 
 
 } //setup
@@ -78,12 +80,16 @@ function setup() {
 
 
 function solveCorners(cube) {
+   var count = 0;
 
 
+   if (cube[up][0][0] == 'W')
+   if (cube[up][2][0] == 'W')
+   if (cube[up][0][2] == 'W')
+   if (cube[up][2][2] == 'W')
 
 
-
-
+   console.log(count);
 }
 
 
