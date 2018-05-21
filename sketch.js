@@ -69,20 +69,9 @@ function setup() {
       }
    }
 
-   //randomize(cube);
-   solvedState(cube);
+   randomize(cube);
 
-   L(cube);
-   R(cube);
-   B(cube);
-   Ri(cube);
-   D(cube);
-   R(cube);
-   Bi(cube);
-   R(cube);
-   L(cube);
-   Di(cube);
-   U(cube);
+
 
 
 
