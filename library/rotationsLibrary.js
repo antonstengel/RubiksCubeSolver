@@ -744,7 +744,7 @@ function checkBottomSide() {
 }
 
 //solves middle edges that can be solved without moving cube
-function SolveAvailableMiddles(cube) {
+function solveAvailableMiddles(cube) {
    if ((cube[front][1][0] == 'B') && (cube[up][1][2] == 'R')) solveBlueRed(cube);
    if ((cube[front][1][0] == 'B') && (cube[up][1][2] == 'O')) solveBlueOrange(cube);
    if ((cube[left][1][0] == 'O') && (cube[up][0][1] == 'B')) solveOrangeBlue(cube);
@@ -754,6 +754,71 @@ function SolveAvailableMiddles(cube) {
    if ((cube[right][1][0] == 'R') && (cube[up][2][1] == 'G')) solveRedGreen(cube);
    if ((cube[right][1][0] == 'R') && (cube[up][2][1] == 'B')) solveRedBlue(cube);
 }
+
+//solves middle edges while checking a move up and up inverted
+function solveMiddlesWithMoves(cube){
+   for (var a = 0; a < 2; a++) {
+      if (a == 0) U(cube);
+      else Ui(cube);
+
+      if ( ((cube[front][1][0] == 'B') && (cube[up][1][2] == 'R')) || ((cube[front][1][0] == 'B') && (cube[up][1][2] == 'O')) || ((cube[left][1][0] == 'O') && (cube[up][0][1] == 'B')) || ((cube[left][1][0] == 'O') && (cube[up][0][1] == 'G')) || ((cube[back][1][0] == 'G') && (cube[up][1][0] == 'O')) || ((cube[back][1][0] == 'G') && (cube[up][1][0] == 'R')) || ((cube[right][1][0] == 'R') && (cube[up][2][1] == 'G')) || ((cube[right][1][0] == 'R') && (cube[up][2][1] == 'B')) ) {
+         if (a == 0) console.log("up");
+         else console.log("up inverted");
+         solveAvailableMiddles(cube);
+      } else {
+         if (a == 0) Ui(cube);
+         else U(cube);
+      }
+   }
+
+   solveAvailableMiddles(cube);
+
+   for (var a = 0; a < 2; a++) {
+      if (a == 0) U(cube);
+      else Ui(cube);
+
+      if ( ((cube[front][1][0] == 'B') && (cube[up][1][2] == 'R')) || ((cube[front][1][0] == 'B') && (cube[up][1][2] == 'O')) || ((cube[left][1][0] == 'O') && (cube[up][0][1] == 'B')) || ((cube[left][1][0] == 'O') && (cube[up][0][1] == 'G')) || ((cube[back][1][0] == 'G') && (cube[up][1][0] == 'O')) || ((cube[back][1][0] == 'G') && (cube[up][1][0] == 'R')) || ((cube[right][1][0] == 'R') && (cube[up][2][1] == 'G')) || ((cube[right][1][0] == 'R') && (cube[up][2][1] == 'B')) ) {
+         if (a == 0) console.log("up");
+         else console.log("up inverted");
+         solveAvailableMiddles(cube);
+      } else {
+         if (a == 0) Ui(cube);
+         else U(cube);
+      }
+   }
+
+   solveAvailableMiddles(cube);
+
+} //solveMiddlesWithMoves
+
+//solves middle edges that are placed in badly already
+function solveMessedUpMiddles(cube) {
+   if((cube[front][0][1] == 'O') && (cube[left][2][1] == 'B')){
+      solveBlueOrange(cube);
+      U(cube); U(cube);
+      console.log("up, up");
+      solveBlueOrange(cube);
+   }
+   if((cube[left][0][1] == 'G') && (cube[back][2][1] == 'O')){
+      solveOrangeGreen(cube);
+      U(cube); U(cube);
+      console.log("up, up");
+      solveOrangeGreen(cube);
+   }
+   if((cube[back][0][1] == 'R') && (cube[right][2][1] == 'G')){
+      solveGreenRed(cube);
+      U(cube); U(cube);
+      console.log("up, up");
+      solveGreenRed(cube);
+   }
+   if((cube[right][0][1] == 'B') && (cube[front][2][1] == 'R')){
+      solveRedBlue(cube);
+      U(cube); U(cube);
+      console.log("up, up");
+      solveRedBlue(cube);
+   }
+}
+
 
 function solveBlueRed(cube) {
    U(cube); R(cube); Ui(cube); Ri(cube); Ui(cube); Fi(cube); U(cube); F(cube);
@@ -799,40 +864,12 @@ function solveRedBlue(cube) {
 
 //solves middle edges
 function solveMiddle(cube) {
+   solveAvailableMiddles(cube);
+   solveMiddlesWithMoves(cube);
+   solveMessedUpMiddles(cube);
 
-   SolveAvailableMiddles(cube);
 
-   for (var a = 0; a < 2; a++) {
-      if (a == 0) U(cube);
-      else Ui(cube);
 
-      if ( ((cube[front][1][0] == 'B') && (cube[up][1][2] == 'R')) || ((cube[front][1][0] == 'B') && (cube[up][1][2] == 'O')) || ((cube[left][1][0] == 'O') && (cube[up][0][1] == 'B')) || ((cube[left][1][0] == 'O') && (cube[up][0][1] == 'G')) || ((cube[back][1][0] == 'G') && (cube[up][1][0] == 'O')) || ((cube[back][1][0] == 'G') && (cube[up][1][0] == 'R')) || ((cube[right][1][0] == 'R') && (cube[up][2][1] == 'G')) || ((cube[right][1][0] == 'R') && (cube[up][2][1] == 'B')) ) {
-         if (a == 0) console.log("up");
-         else console.log("up inverted");
-         SolveAvailableMiddles(cube);
-      } else {
-         if (a == 0) Ui(cube);
-         else U(cube);
-      }
-   }
-
-   SolveAvailableMiddles(cube);
-
-   for (var a = 0; a < 2; a++) {
-      if (a == 0) U(cube);
-      else Ui(cube);
-
-      if ( ((cube[front][1][0] == 'B') && (cube[up][1][2] == 'R')) || ((cube[front][1][0] == 'B') && (cube[up][1][2] == 'O')) || ((cube[left][1][0] == 'O') && (cube[up][0][1] == 'B')) || ((cube[left][1][0] == 'O') && (cube[up][0][1] == 'G')) || ((cube[back][1][0] == 'G') && (cube[up][1][0] == 'O')) || ((cube[back][1][0] == 'G') && (cube[up][1][0] == 'R')) || ((cube[right][1][0] == 'R') && (cube[up][2][1] == 'G')) || ((cube[right][1][0] == 'R') && (cube[up][2][1] == 'B')) ) {
-         if (a == 0) console.log("up");
-         else console.log("up inverted");
-         SolveAvailableMiddles(cube);
-      } else {
-         if (a == 0) Ui(cube);
-         else U(cube);
-      }
-   }
-
-   SolveAvailableMiddles(cube);
 
 } //solveMiddle
 
