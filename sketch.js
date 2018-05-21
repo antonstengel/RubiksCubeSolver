@@ -71,14 +71,12 @@ function setup() {
 
    randomize(cube);
 
+   solve(cube);
 
 
 
 
 
-   solveCross(cube);
-   solveCorners(cube);
-   solveMiddle(cube);
 
 
 

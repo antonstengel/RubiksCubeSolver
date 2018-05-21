@@ -881,6 +881,13 @@ function solveMiddle(cube) {
 //////////OTHER/////////
 ////////////////////////
 
+//solves the cube!
+function solve(cube){
+   solveCross(cube);
+   solveCorners(cube);
+   solveMiddle(cube);
+}
+
 //sets the cube to a solved state
 function solvedState(cube) {
    for (var s = 0; s < 6; s++){
