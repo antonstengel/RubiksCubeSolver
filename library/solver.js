@@ -1674,6 +1674,49 @@ function visualize(cube) {
    } //s
 } //end of visualize
 
+function inputTest(s, x, y, fillColor){
+   console.log("input test");
+   var bigX = 0; //x-location of sides
+   var smallX = 0; //x-location of individual piece
+   var bigY = 0; //y-location of sides
+   var smallY = 0; //y-location of individual piece
+
+   if(s == 0){
+      bigX = 150;
+      bigY = 150;
+   }
+   else if(s == 1){
+      bigX = 150;
+      bigY = 0;
+   }
+   else if(s == 2){
+      bigX = 150;
+      bigY = 300;
+   }
+   else if(s == 3){
+      bigX = 300;
+      bigY = 150;
+   }
+   else if(s == 4){
+      bigX = 0;
+      bigY = 150;
+   }
+   else{
+      bigX = 450;
+      bigY = 150;
+   }
+
+   if (x == 0) smallX = 0;
+   else if (x == 1) smallX = 50;
+   else smallX = 100;
+
+   if (y == 0) smallY = 0;
+   else if (y == 1) smallY = 50;
+   else smallY = 100;
+
+   fill(255,0,0);
+   rect(smallX + bigX, smallY + bigY, 50, 50, 8);
+}
 //single rotation of cube given number -1-11, 11-givenNumber is the reverse move
 function singleRotation(number){
    if (number == 0) R(cube);
