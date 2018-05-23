@@ -21,33 +21,9 @@ Front is blue and up is yellow
 
 All clockwise rotations are clockwise from the angle of looking at the side of the cube.
 Same for counterclockwise.
-
-STUFF FOR TREE:
-
-
-function Node(data) {
-    this.data = data;
-    this.parent = null;
-    this.child = [];
-}
-
-function Tree(data) {
-    var node = new Node(data);
-    this._root = node;
-}
-
-var tree = new Tree(cube);
-
-var cube1 = new R(cube);
-Ri(cube);
-tree._root.child[0] = cube1;
-
-console.log(tree._root);
 */
 
 //defines numbers as 6 sides of the cube
-
-
 var front = 0;
 var up = 4;
 var down = 5;
@@ -69,18 +45,40 @@ function setup() {
       }
    }
 
+   //randomize(cube);
+
+   solvedState(cube);
+
+   // R(cube);
+   // Di(cube);
+   // U(cube);
+   // R(cube);
+   // Li(cube);
+   // B(cube);
+   // U(cube);
+   // R(cube);
+   // Di(cube);
+   // U(cube);
+   // R(cube);
+   // Li(cube);
+   // U(cube);
+   // R(cube);
+   // Li(cube);
+   // B(cube);
+   // U(cube);
+   // R(cube);
+   // Di(cube);
+   // U(cube);
+   // R(cube);
+   // Li(cube);
+
    randomize(cube);
+
+
 
    solve(cube);
 
-
-
-
-
-
-
-
-
+   visualize(cube);
 
 } //setup
 
@@ -95,5 +93,6 @@ function setup() {
 //////////DRAW//////////
 ////////////////////////
 function draw() {
-   visualize(cube);
+
+
 } //draw

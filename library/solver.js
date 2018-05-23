@@ -534,7 +534,7 @@ function solveCorners(cube) {
          F(cube);
          U(cube);
          Fi(cube);
-         console.log("front, up, up, front inverted, up inverted, front, up front inverted (second corner solved)")
+         console.log("front, up, up, front inverted, up inverted, front, up, front inverted (second corner solved)")
       }
    }
 
@@ -564,7 +564,7 @@ function solveCorners(cube) {
          L(cube);
          U(cube);
          Li(cube);
-         console.log("left, up, up, left inverted, up inverted, left, up front inverted (third corner solved)")
+         console.log("left, up, up, left inverted, up inverted, left, up, front inverted (third corner solved)")
       }
    }
 
@@ -594,7 +594,7 @@ function solveCorners(cube) {
          B(cube);
          U(cube);
          Bi(cube);
-         console.log("back, up, up, back inverted, up inverted, back, up front inverted (fourth corner solved)")
+         console.log("back, up, up, back inverted, up inverted, back, up, front inverted (fourth corner solved)")
       }
    }
 } //end of solveCorners
@@ -948,90 +948,59 @@ function checkBottomSide() {
 
 //solves middle edges that can be solved without moving cube
 function solveAvailableMiddles(cube) {
-   if ((cube[front][1][0] == 'B') && (cube[up][1][2] == 'R')) solveBlueRed(cube);
-   if ((cube[front][1][0] == 'B') && (cube[up][1][2] == 'O')) solveBlueOrange(cube);
-   if ((cube[left][1][0] == 'O') && (cube[up][0][1] == 'B')) solveOrangeBlue(cube);
-   if ((cube[left][1][0] == 'O') && (cube[up][0][1] == 'G')) solveOrangeGreen(cube);
-   if ((cube[back][1][0] == 'G') && (cube[up][1][0] == 'O')) solveGreenOrange(cube);
-   if ((cube[back][1][0] == 'G') && (cube[up][1][0] == 'R')) solveGreenRed(cube);
-   if ((cube[right][1][0] == 'R') && (cube[up][2][1] == 'G')) solveRedGreen(cube);
-   if ((cube[right][1][0] == 'R') && (cube[up][2][1] == 'B')) solveRedBlue(cube);
+   while(middlesCanBeSolved(cube) == true){
+      if ((cube[front][1][0] == 'B') && (cube[up][1][2] == 'R')) solveBlueRed(cube);
+      if ((cube[front][1][0] == 'B') && (cube[up][1][2] == 'O')) solveBlueOrange(cube);
+      if ((cube[left][1][0] == 'O') && (cube[up][0][1] == 'B')) solveOrangeBlue(cube);
+      if ((cube[left][1][0] == 'O') && (cube[up][0][1] == 'G')) solveOrangeGreen(cube);
+      if ((cube[back][1][0] == 'G') && (cube[up][1][0] == 'O')) solveGreenOrange(cube);
+      if ((cube[back][1][0] == 'G') && (cube[up][1][0] == 'R')) solveGreenRed(cube);
+      if ((cube[right][1][0] == 'R') && (cube[up][2][1] == 'G')) solveRedGreen(cube);
+      if ((cube[right][1][0] == 'R') && (cube[up][2][1] == 'B')) solveRedBlue(cube);
+   }
 }
 
-//solves middle edges while checking a move up and up inverted
-function solveMiddlesWithMoves(cube) {
-   for(var i = 0; i < 3; i++) { //low key no idea why but if I run it five times it always works
-      solveAvailableMiddles(cube);
-
-      for (var a = 0; a < 2; a++) {
-         if (a == 0) U(cube);
-         else Ui(cube);
-
-         if ( ((cube[front][1][0] == 'B') && (cube[up][1][2] == 'R')) || ((cube[front][1][0] == 'B') && (cube[up][1][2] == 'O')) || ((cube[left][1][0] == 'O') && (cube[up][0][1] == 'B')) || ((cube[left][1][0] == 'O') && (cube[up][0][1] == 'G')) || ((cube[back][1][0] == 'G') && (cube[up][1][0] == 'O')) || ((cube[back][1][0] == 'G') && (cube[up][1][0] == 'R')) || ((cube[right][1][0] == 'R') && (cube[up][2][1] == 'G')) || ((cube[right][1][0] == 'R') && (cube[up][2][1] == 'B')) ) {
-            if (a == 0) console.log("up");
-            else console.log("up inverted");
-            solveAvailableMiddles(cube);
-         } else {
-            if (a == 0) Ui(cube);
-            else U(cube);
-         }
-      }
-
-      solveAvailableMiddles(cube);
-
-      for (var a = 0; a < 2; a++) {
-         if (a == 0) U(cube);
-         else Ui(cube);
-
-         if ( ((cube[front][1][0] == 'B') && (cube[up][1][2] == 'R')) || ((cube[front][1][0] == 'B') && (cube[up][1][2] == 'O')) || ((cube[left][1][0] == 'O') && (cube[up][0][1] == 'B')) || ((cube[left][1][0] == 'O') && (cube[up][0][1] == 'G')) || ((cube[back][1][0] == 'G') && (cube[up][1][0] == 'O')) || ((cube[back][1][0] == 'G') && (cube[up][1][0] == 'R')) || ((cube[right][1][0] == 'R') && (cube[up][2][1] == 'G')) || ((cube[right][1][0] == 'R') && (cube[up][2][1] == 'B')) ) {
-            if (a == 0) console.log("up");
-            else console.log("up inverted");
-            solveAvailableMiddles(cube);
-         } else {
-            if (a == 0) Ui(cube);
-            else U(cube);
-         }
-      }
-
-      solveAvailableMiddles(cube);
-
-
-      U(cube); U(cube);
-
-      if ( ((cube[front][1][0] == 'B') && (cube[up][1][2] == 'R')) || ((cube[front][1][0] == 'B') && (cube[up][1][2] == 'O')) || ((cube[left][1][0] == 'O') && (cube[up][0][1] == 'B')) || ((cube[left][1][0] == 'O') && (cube[up][0][1] == 'G')) || ((cube[back][1][0] == 'G') && (cube[up][1][0] == 'O')) || ((cube[back][1][0] == 'G') && (cube[up][1][0] == 'R')) || ((cube[right][1][0] == 'R') && (cube[up][2][1] == 'G')) || ((cube[right][1][0] == 'R') && (cube[up][2][1] == 'B')) ) {
-         console.log("up, up");
-         solveAvailableMiddles(cube);
-      } else {
-         U(cube); U(cube);
-      }
-   }//runs twice
-} //solveMiddlesWithMoves
+//returns true if a middle edge can be solved without moving
+function middlesCanBeSolved(cube) {
+   if ( ((cube[front][1][0] == 'B') && (cube[up][1][2] == 'R')) || ((cube[front][1][0] == 'B') && (cube[up][1][2] == 'O')) || ((cube[left][1][0] == 'O') && (cube[up][0][1] == 'B')) || ((cube[left][1][0] == 'O') && (cube[up][0][1] == 'G')) || ((cube[back][1][0] == 'G') && (cube[up][1][0] == 'O')) || ((cube[back][1][0] == 'G') && (cube[up][1][0] == 'R')) || ((cube[right][1][0] == 'R') && (cube[up][2][1] == 'G')) || ((cube[right][1][0] == 'R') && (cube[up][2][1] == 'B')) ) {
+      return true;
+   }
+   else return false;
+}
 
 //returns true if middle edges are done
-function checkMiddleEdges(cube) {
+function middleEdgesSolved(cube) {
    if ((cube[front][2][1] == 'B') && (cube[front][0][1] == 'B') && (cube[right][2][1] == 'R') && (cube[right][0][1] == 'R') && (cube[back][2][1] == 'G') && (cube[back][0][1] == 'G') && (cube[left][2][1] == 'O') && (cube[left][0][1] == 'O')) return true;
    else return false;
 }
 
-//solves middle edges that are placed in badly already
-function solveMessedUpMiddles(cube) {
-   if((cube[front][0][1] == 'O') && (cube[left][2][1] == 'B')){
-      solveBlueOrange(cube);
-      solveMiddlesWithMoves(cube);
+//returns true if any middle edge can be solved;
+function anyMiddlesCanBeSolved(cube) {
+   if (middlesCanBeSolved(cube)) return true;
+
+   U(cube);
+   if (middlesCanBeSolved(cube)){
+      Ui(cube);
+      return true;
    }
-   if((cube[left][0][1] == 'G') && (cube[back][2][1] == 'O')){
-      solveOrangeGreen(cube);
-      solveMiddlesWithMoves(cube);
+
+   U(cube);
+   if (middlesCanBeSolved(cube)){
+      Ui(cube); Ui(cube);
+      return true;
    }
-   if((cube[back][0][1] == 'R') && (cube[right][2][1] == 'G')){
-      solveGreenRed(cube);
-      solveMiddlesWithMoves(cube);
+
+   U(cube);
+   if (middlesCanBeSolved(cube)){
+      Ui(cube); Ui(cube); Ui(cube);
+      return true;
    }
-   if((cube[right][0][1] == 'B') && (cube[front][2][1] == 'R')){
-      solveRedBlue(cube);
-      solveMiddlesWithMoves(cube);
-   }
-}
+} //anyMiddlesCanBeSolved
+
+
+
+
+
 
 function solveBlueRed(cube) {
    U(cube); R(cube); Ui(cube); Ri(cube); Ui(cube); Fi(cube); U(cube); F(cube);
@@ -1045,7 +1014,7 @@ function solveBlueOrange(cube) {
 
 function solveOrangeBlue(cube) {
    U(cube); F(cube); Ui(cube); Fi(cube); Ui(cube); Li(cube); U(cube); L(cube);
-   console.log("up, front, up inverted, front inverted, up inverted, left inverted, up, left (blue-red edge solved)");
+   console.log("up, front, up inverted, front inverted, up inverted, left inverted, up, left (orangle-blue edge solved)");
 }
 
 function solveOrangeGreen(cube) {
@@ -1077,36 +1046,15 @@ function solveRedBlue(cube) {
 
 //solves middle edges
 function solveMiddle(cube) {
-   solveMiddlesWithMoves(cube);
-   solveMessedUpMiddles(cube);
 
-   if (((cube[front][0][1] == 'B') && (cube[left][2][1] == 'O')) == false) {
-      solveBlueOrange(cube);
-      solveMiddlesWithMoves(cube);
-   } else if (((cube[left][0][1] == '0') && (cube[back][2][1] == 'G')) == false) {
-      solveOrangeGreen(cube);
-      solveMiddlesWithMoves(cube);
-   } else if (((cube[back][0][1] == 'G') && (cube[right][2][1] == 'R')) == false) {
-      solveGreenRed(cube);
-      solveMiddlesWithMoves(cube);
-   } else if (((cube[right][0][1] == 'R') && (cube[front][2][1] == 'B')) == false) {
-      solveBlueRed(cube);
-      solveMiddlesWithMoves(cube);
+   while (anyMiddlesCanBeSolved(cube)) {
+      solveAvailableMiddles(cube);
+      U(cube); console.log("up");
+
+      if(middleEdgesSolved(cube)) return;
    }
 
-   if (((cube[front][0][1] == 'B') && (cube[left][2][1] == 'O')) == false) {
-      solveBlueOrange(cube);
-      solveMiddlesWithMoves(cube);
-   } else if (((cube[left][0][1] == '0') && (cube[back][2][1] == 'G')) == false) {
-      solveOrangeGreen(cube);
-      solveMiddlesWithMoves(cube);
-   } else if (((cube[back][0][1] == 'G') && (cube[right][2][1] == 'R')) == false) {
-      solveGreenRed(cube);
-      solveMiddlesWithMoves(cube);
-   } else if (((cube[right][0][1] == 'R') && (cube[front][2][1] == 'B')) == false) {
-      solveBlueRed(cube);
-      solveMiddlesWithMoves(cube);
-   }
+
 
 } //solveMiddle
 
@@ -1556,10 +1504,10 @@ function solve(cube){
    solveCross(cube);
    solveCorners(cube);
    solveMiddle(cube);
-   solveYellowCross(cube);
-   alignYellowCorners(cube);
-   placeFinalCorners(cube);
-   lastMove(cube);
+   //solveYellowCross(cube);
+   //alignYellowCorners(cube);
+   //placeFinalCorners(cube);
+   //lastMove(cube);
 }
 
 //sets the cube to a solved state
