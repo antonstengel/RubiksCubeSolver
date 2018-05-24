@@ -45,40 +45,10 @@ function setup() {
       }
    }
 
-   //randomize(cube);
-
-   solvedState(cube);
-
-   // R(cube);
-   // Di(cube);
-   // U(cube);
-   // R(cube);
-   // Li(cube);
-   // B(cube);
-   // U(cube);
-   // R(cube);
-   // Di(cube);
-   // U(cube);
-   // R(cube);
-   // Li(cube);
-   // U(cube);
-   // R(cube);
-   // Li(cube);
-   // B(cube);
-   // U(cube);
-   // R(cube);
-   // Di(cube);
-   // U(cube);
-   // R(cube);
-   // Li(cube);
-
    randomize(cube);
-
-
-
    solve(cube);
-
    visualize(cube);
+
 
 } //setup
 

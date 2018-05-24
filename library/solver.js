@@ -29,6 +29,8 @@ var left = 1;
 var back = 2;
 var cube = new Array(6);
 
+var finalCommands = "";
+
 
 
 ////////////////////////////////////
@@ -48,8 +50,10 @@ function solveCross(cube) {
          singleRotation(b);
 
          if (checkWhiteCross(cube)) {
-            console.log(a + " " + b);
-            console.log(outputCross(a, b, -1, -1, -1, -1, -1));
+            //console.log(a + " " + b);
+            //console.log(outputCross(a, b, -1, -1, -1, -1, -1));
+            var txt = outputCross(a, b, -1, -1, -1, -1, -1);
+            finalCommands += txt;
             return;
          }
 
@@ -58,7 +62,7 @@ function solveCross(cube) {
       singleRotation(11-a);
    } //a
 
-   console.log("b");
+   //console.log("b");
 
    //a through c
    for (var a = -1; a < 12; a++) {
@@ -71,8 +75,10 @@ function solveCross(cube) {
             singleRotation(c);
 
             if (checkWhiteCross(cube)) {
-               console.log(a + " " + b + " " + c);
-               console.log(outputCross(a, b, c, -1, -1, -1, -1));
+               //console.log(a + " " + b + " " + c);
+               //console.log(outputCross(a, b, c, -1, -1, -1, -1));
+               var txt = outputCross(a, b, c, -1, -1, -1, -1);
+               finalCommands += txt;
                return;
             }
 
@@ -83,7 +89,7 @@ function solveCross(cube) {
       singleRotation(11-a);
    } //a
 
-   console.log("c");
+   //console.log("c");
 
    //a through d
    for (var a = -1; a < 12; a++) {
@@ -99,8 +105,10 @@ function solveCross(cube) {
                singleRotation(d);
 
                if (checkWhiteCross(cube)) {
-                  console.log(a + " " + b + " " + c + " " + d);
-                  console.log(outputCross(a, b, c, d, -1, -1, -1));
+                  // console.log(a + " " + b + " " + c + " " + d);
+                  // console.log(outputCross(a, b, c, d, -1, -1, -1));
+                  var txt = outputCross(a, b, c, d, -1, -1, -1);
+                  finalCommands += txt;
                   return;
                }
 
@@ -113,7 +121,7 @@ function solveCross(cube) {
       singleRotation(11-a);
    } //a
 
-   console.log("d");
+   //console.log("d");
 
    //a through e
    for (var a = -1; a < 12; a++) {
@@ -132,8 +140,10 @@ function solveCross(cube) {
                   singleRotation(e);
 
                   if (checkWhiteCross(cube)) {
-                     console.log(a + " " + b + " " + c + " " + d + " " + e);
-                     console.log(outputCross(a, b, c, d, e, -1, -1));
+                     // console.log(a + " " + b + " " + c + " " + d + " " + e);
+                     // console.log(outputCross(a, b, c, d, e, -1, -1));
+                     var txt = outputCross(a, b, c, d, e, -1, -1);
+                     finalCommands += txt;
                      return;
                   }
 
@@ -148,7 +158,7 @@ function solveCross(cube) {
       singleRotation(11-a);
    } //a
 
-   console.log("e");
+   //console.log("e");
 
    //a through f
    for (var a = -1; a < 12; a++) {
@@ -170,8 +180,10 @@ function solveCross(cube) {
                      singleRotation(f);
 
                      if (checkWhiteCross(cube)) {
-                        console.log(a + " " + b + " " + c + " " + d + " " + e + " " + f);
-                        console.log(outputCross(a, b, c, d, e, f, -1));
+                        // console.log(a + " " + b + " " + c + " " + d + " " + e + " " + f);
+                        // console.log(outputCross(a, b, c, d, e, f, -1));
+                        var txt = outputCross(a, b, c, d, e, f, -1);
+                        finalCommands += txt;
                         return;
                      }
 
@@ -188,7 +200,7 @@ function solveCross(cube) {
       singleRotation(11-a);
    } //a
 
-   console.log("f");
+   //console.log("f");
 
    //a through g
    for (var a = -1; a < 12; a++) {
@@ -213,8 +225,10 @@ function solveCross(cube) {
                         singleRotation(g);
 
                         if (checkWhiteCross(cube)) {
-                           console.log(a + " " + b + " " + c + " " + d + " " + e + " " + f + " " + g);
-                           console.log(outputCross(a, b, c, d, e, f, g));
+                           // console.log(a + " " + b + " " + c + " " + d + " " + e + " " + f + " " + g);
+                           // console.log(outputCross(a, b, c, d, e, f, g));
+                           var txt = outputCross(a, b, c, d, e, f, g);
+                           finalCommands += txt;
                            return;
                         }
 
@@ -246,8 +260,10 @@ function solveWhiteThree(cube) {
          singleRotation(b);
 
          if (checkWhiteThree(cube)) {
-            console.log(a + " " + b);
-            console.log(outputCross(a, b, -1, -1, -1, -1, -1));
+            // console.log(a + " " + b);
+            // console.log(outputCross(a, b, -1, -1, -1, -1, -1));
+            var txt = outputCross(a, b, -1, -1, -1, -1, -1);
+            finalCommands += txt;
             return;
          }
 
@@ -256,7 +272,7 @@ function solveWhiteThree(cube) {
       singleRotation(11-a);
    } //a
 
-   console.log("b");
+   //console.log("b");
 
    //a through c
    for (var a = -1; a < 12; a++) {
@@ -271,6 +287,8 @@ function solveWhiteThree(cube) {
             if (checkWhiteThree(cube)) {
                console.log(a + " " + b + " " + c);
                console.log(outputCross(a, b, c, -1, -1, -1, -1));
+               var txt = outputCross(a, b, c, -1, -1, -1, -1);
+               finalCommands += txt;
                return;
             }
 
@@ -281,7 +299,7 @@ function solveWhiteThree(cube) {
       singleRotation(11-a);
    } //a
 
-   console.log("c");
+   //console.log("c");
 
    //a through d
    for (var a = -1; a < 12; a++) {
@@ -297,8 +315,10 @@ function solveWhiteThree(cube) {
                singleRotation(d);
 
                if (checkWhiteThree(cube)) {
-                  console.log(a + " " + b + " " + c + " " + d);
-                  console.log(outputCross(a, b, c, d, -1, -1, -1));
+                  // console.log(a + " " + b + " " + c + " " + d);
+                  // console.log(outputCross(a, b, c, d, -1, -1, -1));
+                  var txt = outputCross(a, b, c, d, -1, -1, -1);
+                  finalCommands += txt;
                   return;
                }
 
@@ -311,7 +331,7 @@ function solveWhiteThree(cube) {
       singleRotation(11-a);
    } //a
 
-   console.log("d");
+   //console.log("d");
 
    //a through e
    for (var a = -1; a < 12; a++) {
@@ -330,8 +350,10 @@ function solveWhiteThree(cube) {
                   singleRotation(e);
 
                   if (checkWhiteThree(cube)) {
-                     console.log(a + " " + b + " " + c + " " + d + " " + e);
-                     console.log(outputCross(a, b, c, d, e, -1, -1));
+                     // console.log(a + " " + b + " " + c + " " + d + " " + e);
+                     // console.log(outputCross(a, b, c, d, e, -1, -1));
+                     var txt = outputCross(a, b, c, d, e, -1, -1);
+                     finalCommands += txt;
                      return;
                   }
 
@@ -346,7 +368,7 @@ function solveWhiteThree(cube) {
       singleRotation(11-a);
    } //a
 
-   console.log("e");
+   //console.log("e");
 
    //a through f
    for (var a = -1; a < 12; a++) {
@@ -368,8 +390,10 @@ function solveWhiteThree(cube) {
                      singleRotation(f);
 
                      if (checkWhiteThree(cube)) {
-                        console.log(a + " " + b + " " + c + " " + d + " " + e + " " + f);
-                        console.log(outputCross(a, b, c, d, e, f, -1));
+                        // console.log(a + " " + b + " " + c + " " + d + " " + e + " " + f);
+                        // console.log(outputCross(a, b, c, d, e, f, -1));
+                        var txt = outputCross(a, b, c, d, e, f, -1);
+                        finalCommands += txt;
                         return;
                      }
 
@@ -386,7 +410,7 @@ function solveWhiteThree(cube) {
       singleRotation(11-a);
    } //a
 
-   console.log("f");
+   //console.log("f");
 
    //a through g
    for (var a = -1; a < 12; a++) {
@@ -411,8 +435,10 @@ function solveWhiteThree(cube) {
                         singleRotation(g);
 
                         if (checkWhiteThree(cube)) {
-                           console.log(a + " " + b + " " + c + " " + d + " " + e + " " + f + " " + g);
-                           console.log(outputCross(a, b, c, d, e, f, g));
+                           // console.log(a + " " + b + " " + c + " " + d + " " + e + " " + f + " " + g);
+                           // console.log(outputCross(a, b, c, d, e, f, g));
+                           var txt = outputCross(a, b, c, d, e, f, g);
+                           finalCommands += txt;
                            return;
                         }
 
@@ -446,17 +472,18 @@ function outputCross(a, b, c, d, e, f, g) {
       else if(input[i] == 3) output[i] = "down, ";
       else if(input[i] == 4) output[i] = "front, ";
       else if(input[i] == 5) output[i] = "back, ";
-      else if(input[i] == 6) output[i] = "back inverted, ";
-      else if(input[i] == 7) output[i] = "front inverted, ";
-      else if(input[i] == 8) output[i] = "down inverted, ";
-      else if(input[i] == 9) output[i] = "up inverted, ";
-      else if(input[i] == 10) output[i] = "left inverted, ";
-      else if(input[i] == 11) output[i] = "right inverted, ";
+      else if(input[i] == 6) output[i] = "back inverse, ";
+      else if(input[i] == 7) output[i] = "front inverse, ";
+      else if(input[i] == 8) output[i] = "down inverse, ";
+      else if(input[i] == 9) output[i] = "up inverse, ";
+      else if(input[i] == 10) output[i] = "left inverse, ";
+      else if(input[i] == 11) output[i] = "right inverse, ";
    }
 
-   var response = output[0] + output[1] + output[2] + output[3] + " " + output[4] + output[5] + output[6];
+   var response = output[0] + output[1] + output[2] + output[3] + output[4] + output[5] + output[6];
 
-   console.log(response);
+   //console.log(response);
+   return response;
 }
 
 //returns true if white cross is solved and false if it isn't
@@ -487,14 +514,18 @@ function solveCorners(cube) {
          R(cube);
          U(cube);
          Ri(cube);
-         console.log("right, up, right inverted (first corner solved)");
+         //console.log("right, up, right inverse (first corner solved)");
+         var txt = "right, up, right inverse, ";
+         finalCommands += txt;
 
       } else if(cube[front][2][0] == 'W') {
          U(cube);
          R(cube);
          Ui(cube);
          Ri(cube);
-         console.log("up, right, up inverted, right inverted (first corner solved)")
+         //console.log("up, right, up inverse, right inverse (first corner solved)")
+         var txt = "up, right, up inverse, right inverse, ";
+         finalCommands += txt;
       } else {
          R(cube);
          U(cube);
@@ -504,7 +535,9 @@ function solveCorners(cube) {
          R(cube);
          U(cube);
          Ri(cube);
-         console.log("right, up, up, right inverted, up inverted, right, up, right inverted (first corner solved)")
+         //console.log("right, up, up, right inverse, up inverse, right, up, right inverse (first corner solved)")
+         var txt = "right, up, up, right inverse, up inverse, right, up, right inverse, ";
+         finalCommands += txt;
       }
    }
 
@@ -517,14 +550,18 @@ function solveCorners(cube) {
          F(cube);
          U(cube);
          Fi(cube);
-         console.log("front, up, front inverted (second corner solved)");
+         //console.log("front, up, front inverse (second corner solved)");
+         var txt = "front, up, front inverse, ";
+         finalCommands += txt;
 
       } else if(cube[left][2][0] == 'W') {
          U(cube);
          F(cube);
          Ui(cube);
          Fi(cube);
-         console.log("up, front, up inverted, front inverted (second corner solved)")
+         //console.log("up, front, up inverse, front inverse (second corner solved)")
+         var txt = "up, front, up inverse, front inverse, ";
+         finalCommands += txt;
       } else {
          F(cube);
          U(cube);
@@ -534,7 +571,9 @@ function solveCorners(cube) {
          F(cube);
          U(cube);
          Fi(cube);
-         console.log("front, up, up, front inverted, up inverted, front, up, front inverted (second corner solved)")
+         //console.log("front, up, up, front inverse, up inverse, front, up, front inverse (second corner solved)")
+         var txt = "front, up, up, front inverse, up inverse, front, up, front inverse, ";
+         finalCommands += txt;
       }
    }
 
@@ -547,14 +586,18 @@ function solveCorners(cube) {
          L(cube);
          U(cube);
          Li(cube);
-         console.log("left, up, left inverted (third corner solved)");
+         //console.log("left, up, left inverse (third corner solved)");
+         var txt = "left, up, left inverse, ";
+         finalCommands += txt;
 
       } else if(cube[back][2][0] == 'W') {
          U(cube);
          L(cube);
          Ui(cube);
          Li(cube);
-         console.log("up, left, up inverted, left inverted (third corner solved)")
+         //console.log("up, left, up inverse, left inverse (third corner solved)")
+         var txt = "up, left, up inverse, left inverse, ";
+         finalCommands += txt;
       } else {
          L(cube);
          U(cube);
@@ -564,7 +607,9 @@ function solveCorners(cube) {
          L(cube);
          U(cube);
          Li(cube);
-         console.log("left, up, up, left inverted, up inverted, left, up, front inverted (third corner solved)")
+         //console.log("left, up, up, left inverse, up inverse, left, up, front inverse (third corner solved)")
+         var txt = "left, up, up, left inverse, up inverse, left, up, front inverse, ";
+         finalCommands += txt;
       }
    }
 
@@ -577,14 +622,18 @@ function solveCorners(cube) {
          B(cube);
          U(cube);
          Bi(cube);
-         console.log("back, up, back inverted (fourth corner solved)");
+         //console.log("back, up, back inverse (fourth corner solved)");
+         var txt = "back, up, back inverse, ";
+         finalCommands += txt;
 
       } else if(cube[right][2][0] == 'W') {
          U(cube);
          B(cube);
          Ui(cube);
          Bi(cube);
-         console.log("up, back, up inverted, back inverted (fourth corner solved)")
+         //console.log("up, back, up inverse, back inverse (fourth corner solved)")
+         var txt = "up, back, up inverse, back inverse, ";
+         finalCommands += txt;
       } else {
          B(cube);
          U(cube);
@@ -594,7 +643,9 @@ function solveCorners(cube) {
          B(cube);
          U(cube);
          Bi(cube);
-         console.log("back, up, up, back inverted, up inverted, back, up, front inverted (fourth corner solved)")
+         //console.log("back, up, up, back inverse, up inverse, back, up, front inverse (fourth corner solved)")
+         var txt = "back, up, up, back inverse, up inverse, back, up, front inverse, ";
+         finalCommands += txt;
       }
    }
 } //end of solveCorners
@@ -615,8 +666,10 @@ function positionCorner1(cube) {
          singleRotation(b);
 
          if (checkWhiteCross(cube) && checkCorner1(cube)) {
-            console.log(a + " " + b);
-            console.log(outputCross(a, b, -1, -1, -1, -1, -1));
+            //console.log(a + " " + b);
+            //console.log(outputCross(a, b, -1, -1, -1, -1, -1));
+            var txt = outputCross(a, b, -1, -1, -1, -1, -1);
+            finalCommands += txt;
             return;
          }
 
@@ -625,7 +678,7 @@ function positionCorner1(cube) {
       singleRotation(11-a);
    } //a
 
-   console.log("b");
+   //console.log("b");
 
    //a through c
    for (var a = -1; a < 12; a++) {
@@ -638,8 +691,10 @@ function positionCorner1(cube) {
             singleRotation(c);
 
             if (checkWhiteCross(cube) && checkCorner1(cube)) {
-               console.log(a + " " + b + " " + c);
-               console.log(outputCross(a, b, c, -1, -1, -1, -1));
+               //console.log(a + " " + b + " " + c);
+               //console.log(outputCross(a, b, c, -1, -1, -1, -1));
+               var txt = outputCross(a, b, c, -1, -1, -1, -1);
+               finalCommands += txt;
                return;
             }
 
@@ -650,7 +705,7 @@ function positionCorner1(cube) {
       singleRotation(11-a);
    } //a
 
-   console.log("c");
+   //console.log("c");
 
    //a through d
    for (var a = -1; a < 12; a++) {
@@ -666,8 +721,10 @@ function positionCorner1(cube) {
                singleRotation(d);
 
                if (checkWhiteCross(cube) && checkCorner1(cube)) {
-                  console.log(a + " " + b + " " + c + " " + d);
-                  console.log(outputCross(a, b, c, d, -1, -1, -1));
+                  //console.log(a + " " + b + " " + c + " " + d);
+                  //console.log(outputCross(a, b, c, d, -1, -1, -1));
+                  var txt = outputCross(a, b, c, d, -1, -1, -1);
+                  finalCommands += txt;
                   return;
                }
 
@@ -680,7 +737,7 @@ function positionCorner1(cube) {
       singleRotation(11-a);
    } //a
 
-   console.log("d");
+   //console.log("d");
 }
 
 //checks if corner2 is ready to be placed in
@@ -699,8 +756,10 @@ function positionCorner2(cube) {
          singleRotation(b);
 
          if (checkWhiteCross(cube) && checkCorner2(cube) && (cube[down][2][0] == 'W')) {
-            console.log(a + " " + b);
-            console.log(outputCross(a, b, -1, -1, -1, -1, -1));
+            //console.log(a + " " + b);
+            //console.log(outputCross(a, b, -1, -1, -1, -1, -1));
+            var txt = outputCross(a, b, -1, -1, -1, -1, -1);
+            finalCommands += txt;
             return;
          }
 
@@ -709,7 +768,7 @@ function positionCorner2(cube) {
       singleRotation(11-a);
    } //a
 
-   console.log("b");
+   //console.log("b");
 
    //a through c
    for (var a = -1; a < 12; a++) {
@@ -722,8 +781,10 @@ function positionCorner2(cube) {
             singleRotation(c);
 
             if (checkWhiteCross(cube) && checkCorner2(cube) && (cube[down][2][0] == 'W')) {
-               console.log(a + " " + b + " " + c);
-               console.log(outputCross(a, b, c, -1, -1, -1, -1));
+               //console.log(a + " " + b + " " + c);
+               //console.log(outputCross(a, b, c, -1, -1, -1, -1));
+               var txt = outputCross(a, b, c, -1, -1, -1, -1);
+               finalCommands += txt;
                return;
             }
 
@@ -734,7 +795,7 @@ function positionCorner2(cube) {
       singleRotation(11-a);
    } //a
 
-   console.log("c");
+   //console.log("c");
 
    //a through d
    for (var a = -1; a < 12; a++) {
@@ -750,8 +811,10 @@ function positionCorner2(cube) {
                singleRotation(d);
 
                if (checkWhiteCross(cube) && checkCorner2(cube) && (cube[down][2][0] == 'W')) {
-                  console.log(a + " " + b + " " + c + " " + d);
-                  console.log(outputCross(a, b, c, d, -1, -1, -1));
+                  //console.log(a + " " + b + " " + c + " " + d);
+                  //console.log(outputCross(a, b, c, d, -1, -1, -1));
+                  var txt = outputCross(a, b, c, d, -1, -1, -1);
+                  finalCommands += txt;
                   return;
                }
 
@@ -764,7 +827,7 @@ function positionCorner2(cube) {
       singleRotation(11-a);
    } //a
 
-   console.log("d");
+   //console.log("d");
 }
 
 //checks if corner3 is ready to be placed in
@@ -783,8 +846,10 @@ function positionCorner3(cube) {
          singleRotation(b);
 
          if (checkWhiteCross(cube) && checkCorner3(cube) && (cube[down][2][0] == 'W') && (cube[down][0][0] == 'W')) {
-            console.log(a + " " + b);
-            console.log(outputCross(a, b, -1, -1, -1, -1, -1));
+            //console.log(a + " " + b);
+            //console.log(outputCross(a, b, -1, -1, -1, -1, -1));
+            var txt = outputCross(a, b, -1, -1, -1, -1, -1);
+            finalCommands += txt;
             return;
          }
 
@@ -793,7 +858,7 @@ function positionCorner3(cube) {
       singleRotation(11-a);
    } //a
 
-   console.log("b");
+   //console.log("b");
 
    //a through c
    for (var a = -1; a < 12; a++) {
@@ -806,8 +871,10 @@ function positionCorner3(cube) {
             singleRotation(c);
 
             if (checkWhiteCross(cube) && checkCorner3(cube) && (cube[down][2][0] == 'W') && (cube[down][0][0] == 'W')) {
-               console.log(a + " " + b + " " + c);
-               console.log(outputCross(a, b, c, -1, -1, -1, -1));
+               //console.log(a + " " + b + " " + c);
+               //console.log(outputCross(a, b, c, -1, -1, -1, -1));
+               var txt = outputCross(a, b, c, -1, -1, -1, -1);
+               finalCommands += txt;
                return;
             }
 
@@ -818,7 +885,7 @@ function positionCorner3(cube) {
       singleRotation(11-a);
    } //a
 
-   console.log("c");
+   //console.log("c");
 
    //a through d
    for (var a = -1; a < 12; a++) {
@@ -834,8 +901,10 @@ function positionCorner3(cube) {
                singleRotation(d);
 
                if (checkWhiteCross(cube) && checkCorner3(cube) && (cube[down][2][0] == 'W') && (cube[down][0][0] == 'W')) {
-                  console.log(a + " " + b + " " + c + " " + d);
-                  console.log(outputCross(a, b, c, d, -1, -1, -1));
+                  //console.log(a + " " + b + " " + c + " " + d);
+                  //console.log(outputCross(a, b, c, d, -1, -1, -1));
+                  var txt = outputCross(a, b, c, d, -1, -1, -1);
+                  finalCommands += txt;
                   return;
                }
 
@@ -848,7 +917,7 @@ function positionCorner3(cube) {
       singleRotation(11-a);
    } //a
 
-   console.log("d");
+   //console.log("d");
 }
 
 //checks if corner4 is ready to be placed in
@@ -867,8 +936,10 @@ function positionCorner4(cube) {
          singleRotation(b);
 
          if (checkWhiteCross(cube) && checkCorner4(cube) && (cube[down][2][0] == 'W') && (cube[down][0][0] == 'W') && (cube[down][0][2] == 'W')) {
-            console.log(a + " " + b);
-            console.log(outputCross(a, b, -1, -1, -1, -1, -1));
+            //console.log(a + " " + b);
+            //console.log(outputCross(a, b, -1, -1, -1, -1, -1));
+            var txt = outputCross(a, b, -1, -1, -1, -1, -1);
+            finalCommands += txt;
             return;
          }
 
@@ -877,7 +948,7 @@ function positionCorner4(cube) {
       singleRotation(11-a);
    } //a
 
-   console.log("b");
+   //console.log("b");
 
    //a through c
    for (var a = -1; a < 12; a++) {
@@ -890,8 +961,10 @@ function positionCorner4(cube) {
             singleRotation(c);
 
             if (checkWhiteCross(cube) && checkCorner4(cube) && (cube[down][2][0] == 'W') && (cube[down][0][0] == 'W') && (cube[down][0][2] == 'W')) {
-               console.log(a + " " + b + " " + c);
-               console.log(outputCross(a, b, c, -1, -1, -1, -1));
+               //console.log(a + " " + b + " " + c);
+               //console.log(outputCross(a, b, c, -1, -1, -1, -1));
+               var txt = outputCross(a, b, c, -1, -1, -1, -1);
+               finalCommands += txt;
                return;
             }
 
@@ -902,7 +975,7 @@ function positionCorner4(cube) {
       singleRotation(11-a);
    } //a
 
-   console.log("c");
+   //console.log("c");
 
    //a through d
    for (var a = -1; a < 12; a++) {
@@ -918,8 +991,10 @@ function positionCorner4(cube) {
                singleRotation(d);
 
                if (checkWhiteCross(cube) && checkCorner4(cube) && (cube[down][2][0] == 'W') && (cube[down][0][0] == 'W') && (cube[down][0][2] == 'W')) {
-                  console.log(a + " " + b + " " + c + " " + d);
-                  console.log(outputCross(a, b, c, d, -1, -1, -1));
+                  //console.log(a + " " + b + " " + c + " " + d);
+                  //console.log(outputCross(a, b, c, d, -1, -1, -1));
+                  var txt = outputCross(a, b, c, d, -1, -1, -1);
+                  finalCommands += txt;
                   return;
                }
 
@@ -932,7 +1007,7 @@ function positionCorner4(cube) {
       singleRotation(11-a);
    } //a
 
-   console.log("d");
+   //console.log("d");
 }
 
 
@@ -1004,54 +1079,119 @@ function anyMiddlesCanBeSolved(cube) {
 
 function solveBlueRed(cube) {
    U(cube); R(cube); Ui(cube); Ri(cube); Ui(cube); Fi(cube); U(cube); F(cube);
-   console.log("up, right, up inverted, right inverted, up inverted, front inverted, up, front (blue-red edge solved)");
+   //console.log("up, right, up inverse, right inverse, up inverse, front inverse, up, front (blue-red edge solved)");
+   var txt = "up, right, up inverse, right inverse, up inverse, front inverse, up, front, ";
+   finalCommands += txt;
 }
 
 function solveBlueOrange(cube) {
    Ui(cube); Li(cube); U(cube); L(cube); U(cube); F(cube); Ui(cube); Fi(cube);
-   console.log("up inverted, left inverted, up, left, up, front, up inverted, front inverted (blue-orange edge solved)");
+   //console.log("up inverse, left inverse, up, left, up, front, up inverse, front inverse (blue-orange edge solved)");
+   var txt = "up inverse, left inverse, up, left, up, front, up inverse, front inverse, ";
+   finalCommands += txt;
 }
 
 function solveOrangeBlue(cube) {
    U(cube); F(cube); Ui(cube); Fi(cube); Ui(cube); Li(cube); U(cube); L(cube);
-   console.log("up, front, up inverted, front inverted, up inverted, left inverted, up, left (orangle-blue edge solved)");
+   //console.log("up, front, up inverse, front inverse, up inverse, left inverse, up, left (orangle-blue edge solved)");
+   var txt = "up, front, up inverse, front inverse, up inverse, left inverse, up, left, ";
+   finalCommands += txt;
 }
 
 function solveOrangeGreen(cube) {
    Ui(cube); Bi(cube); U(cube); B(cube); U(cube); L(cube); Ui(cube); Li(cube);
-   console.log("up inverted, back inverted, up, back, up, left, up inverted, left inverted (orange-green edge solved)");
+   //console.log("up inverse, back inverse, up, back, up, left, up inverse, left inverse (orange-green edge solved)");
+   var txt = "up inverse, back inverse, up, back, up, left, up inverse, left inverse, ";
+   finalCommands += txt;
 }
 
 function solveGreenOrange(cube) {
    U(cube); L(cube); Ui(cube); Li(cube); Ui(cube); Bi(cube); U(cube); B(cube);
-   console.log("up, left, up inverted, left inverted, up inverted, back inverted, up, back (green-orange edge solved)");
-
+   //console.log("up, left, up inverse, left inverse, up inverse, back inverse, up, back (green-orange edge solved)");
+   var txt = "up, left, up inverse, left inverse, up inverse, back inverse, up, back, ";
+   finalCommands += txt;
 }
 
 function solveGreenRed(cube) {
    Ui(cube); Ri(cube); U(cube); R(cube); U(cube); B(cube); Ui(cube); Bi(cube);
-   console.log("up inverted, right inverted, up, right, up, back, up inverted, back inverted (green-red edge solved)");
-
+   //console.log("up inverse, right inverse, up, right, up, back, up inverse, back inverse (green-red edge solved)");
+   var txt = "up inverse, right inverse, up, right, up, back, up inverse, back inverse, ";
+   finalCommands += txt;
 }
 
 function solveRedGreen(cube) {
    U(cube); B(cube); Ui(cube); Bi(cube); Ui(cube); Ri(cube); U(cube); R(cube);
-   console.log("up, front, up inverted, front inverted, up inverted, left inverted, up, left (red-green edge solved)");
+   //console.log("up, back, up inverse, back inverse, up inverse, right inverse, up, right (red-green edge solved)");
+   var txt = "up, back, up inverse, back inverse, up inverse, right inverse, up, right, ";
+   finalCommands += txt;
 }
 
 function solveRedBlue(cube) {
    Ui(cube); Fi(cube); U(cube); F(cube); U(cube); R(cube); Ui(cube); Ri(cube);
-   console.log("up inverted, back inverted, up, back, up, left, up inverted, left inverted (red-blue edge solved)");
+   //console.log("up inverse, front inverse, up, front, up, right, up inverse, right inverse (red-blue edge solved)");
+   var txt = "up inverse, front inverse, up, front, up, right, up inverse, right inverse, ";
+   finalCommands += txt;
 }
 
 //solves middle edges
 function solveMiddle(cube) {
 
    while (anyMiddlesCanBeSolved(cube)) {
+      Ui(cube)
+      if(middlesCanBeSolved(cube)){
+         //console.log("up inverse");
+         finalCommands += "up inverse, ";
+         solveAvailableMiddles(cube);
+      } else U(cube);
+
       solveAvailableMiddles(cube);
-      U(cube); console.log("up");
 
       if(middleEdgesSolved(cube)) return;
+
+      U(cube); //console.log("up");
+      finalCommands += "up, ";
+   }
+
+   if (((cube[front][2][1] == 'B') && (cube[right][0][1] == 'R')) != true) solveBlueRed(cube);
+   else if (((cube[right][2][1] == 'R') && (cube[back][0][1] == 'G')) != true) solveRedGreen(cube);
+   else if (((cube[back][2][1] == 'G') && (cube[left][0][1] == 'O')) != true) solveGreenOrange(cube);
+   else if (((cube[left][2][1] == 'O') && (cube[front][0][1] == 'B')) != true) solveBlueOrange(cube);
+
+   while (anyMiddlesCanBeSolved(cube)) {
+      Ui(cube)
+      if(middlesCanBeSolved(cube)){
+         //console.log("up inverse");
+         finalCommands += "up inverse, ";
+         solveAvailableMiddles(cube);
+      } else U(cube);
+
+      solveAvailableMiddles(cube);
+
+      if(middleEdgesSolved(cube)) return;
+
+      U(cube); //console.log("up");
+      finalCommands += "up, ";
+   }
+
+   if (((cube[front][2][1] == 'B') && (cube[right][0][1] == 'R')) != true) solveBlueRed(cube);
+   else if (((cube[right][2][1] == 'R') && (cube[back][0][1] == 'G')) != true) solveRedGreen(cube);
+   else if (((cube[back][2][1] == 'G') && (cube[left][0][1] == 'O')) != true) solveGreenOrange(cube);
+   else if (((cube[left][2][1] == 'O') && (cube[front][0][1] == 'B')) != true) solveBlueOrange(cube);
+
+   while (anyMiddlesCanBeSolved(cube)) {
+      Ui(cube)
+      if(middlesCanBeSolved(cube)){
+         //console.log("up inverse");
+         finalCommands += "up inverse, ";
+         solveAvailableMiddles(cube);
+      } else U(cube);
+
+      solveAvailableMiddles(cube);
+
+      if(middleEdgesSolved(cube)) return;
+
+      U(cube); //console.log("up");
+      finalCommands += "up, ";
    }
 
 
@@ -1070,7 +1210,8 @@ function placeYellowCross(cube) {
    }
    else if ((cube[up][0][1] != 'Y') && (cube[up][2][1] != 'Y') && (cube[up][1][0] == 'Y') && (cube[up][1][2] == 'Y')) {
       U(cube);
-      console.log("up");
+      //console.log("up");
+      finalCommands += "up, ";
       solveYellowLine(cube);
    }
    else if ((cube[up][0][1] == 'Y') && (cube[up][2][1] == 'Y') && (cube[up][1][0] != 'Y') && (cube[up][1][2] != 'Y')) {
@@ -1081,17 +1222,20 @@ function placeYellowCross(cube) {
    }
    else if ((cube[up][0][1] != 'Y') && (cube[up][1][0] == 'Y') && (cube[up][2][1] == 'Y') && (cube[up][1][2] != 'Y')) {
       Ui(cube);
-      console.log("up inverse");
+      //console.log("up inverse");
+      finalCommands += "up inverse, ";
       solveYellowV(cube);
    }
    else if ((cube[up][0][1] != 'Y') && (cube[up][1][0] != 'Y') && (cube[up][2][1] == 'Y') && (cube[up][1][2] == 'Y')) {
       U(cube); U(cube);
-      console.log("up, up");
+      //console.log("up, up");
+      finalCommands += "up, up, ";
       solveYellowV(cube);
    }
    else if ((cube[up][0][1] == 'Y') && (cube[up][1][0] != 'Y') && (cube[up][2][1] != 'Y') && (cube[up][1][2] == 'Y')) {
       U(cube);
-      console.log("up");
+      //console.log("up");
+      finalCommands += "up, ";
       solveYellowV(cube);
    }
 }
@@ -1109,7 +1253,8 @@ function solveYellowV(cube) {
    Ui(cube);
    Fi(cube);
 
-   console.log("front, right, up, right inverse, up inverse, right, up, right inverse, up inverse, front inverse (yellow cross created)");
+   //console.log("front, right, up, right inverse, up inverse, right, up, right inverse, up inverse, front inverse (yellow cross created)");
+   finalCommands += "front, right, up, right inverse, up inverse, right, up, right inverse, up inverse, front inverse ";
 }
 
 //makes the yellow cross given a yellow dot
@@ -1125,7 +1270,8 @@ function solveYellowDot(cube) {
    U(cube);
 
 
-   console.log("front, right, up, right inverse, up inverse, front inverse, up, up (yellow V created)");
+   //console.log("front, right, up, right inverse, up inverse, front inverse, up, up (yellow V created)");
+   finalCommands += "front, right, up, right inverse, up inverse, front inverse, up, up, ";
 
    solveYellowV(cube);
 }
@@ -1138,13 +1284,14 @@ function solveYellowLine(cube) {
    Ri(cube);
    Ui(cube);
    Fi(cube);
-   console.log("front, right, up, right inverse, up inverse, front inverse (yellow cross created)");
+   //console.log("front, right, up, right inverse, up inverse, front inverse (yellow cross created)");
+   finalCommands += "front, right, up, right inverse, up inverse, front inverse, ";
 }
 
 //aligns sides of yellow cross
 function alignYellowCross(cube) {
-   console.log(allYellowAligned(cube));
-   console.log(twoYellowAligned(cube));
+   //console.log(allYellowAligned(cube));
+   //console.log(twoYellowAligned(cube));
 
    if(twoYellowAligned(cube)){
       alignAvailableYellowCross(cube);
@@ -1157,12 +1304,12 @@ function alignYellowCross(cube) {
       else Ui(cube);
 
       if (allYellowAligned(cube)) {
-         if (a == 0) console.log("up (yellow cross aligned)");
-         else console.log("up inverse (yellow cross aligned)");
+         if (a == 0) finalCommands += "up, ";
+         else finalCommands += "up inverse, ";
          return;
       } else if (twoYellowAligned(cube)) {
-         if (a == 0) console.log("up");
-         else console.log("up inverse");
+         if (a == 0) finalCommands += "up, ";
+         else finalCommands += "up inverse, ";
          alignAvailableYellowCross(cube);
          return;
       }
@@ -1176,10 +1323,12 @@ function alignYellowCross(cube) {
    U(cube);
 
    if (allYellowAligned(cube)) {
-      console.log("up, up (yellow cross aligned)");
+      //console.log("up, up (yellow cross aligned)");
+
       return;
    } else if (twoYellowAligned(cube)) {
-      console.log("up, up");
+      //console.log("up, up");
+      finalCommands += "up, up, ";
       alignAvailableYellowCross(cube);
       return;
    }
@@ -1236,7 +1385,8 @@ function solveYellowCrossBlueRed(cube) {
    Fi(cube);
    U(cube);
 
-   console.log("front, up, front inverse, up, front, up, up, front inverse, up (yellow cross aligned)");
+   //console.log("front, up, front inverse, up, front, up, up, front inverse, up (yellow cross aligned)");
+   finalCommands += "front, up, front inverse, up, front, up, up, front inverse, up, ";
 }
 
 function solveYellowCrossOrangeBlue(cube) {
@@ -1250,7 +1400,8 @@ function solveYellowCrossOrangeBlue(cube) {
    Li(cube);
    U(cube);
 
-   console.log("left, up, left inverse, up, left, up, up, left inverse, up (yellow cross aligned)");
+   //console.log("left, up, left inverse, up, left, up, up, left inverse, up (yellow cross aligned)");
+   finalCommands += "left, up, left inverse, up, left, up, up, left inverse, up, ";
 }
 
 function solveYellowCrossGreenOrange(cube) {
@@ -1264,7 +1415,8 @@ function solveYellowCrossGreenOrange(cube) {
    Bi(cube);
    U(cube);
 
-   console.log("back, up, back inverse, up, back, up, up, back inverse, up (yellow cross aligned)");
+   //console.log("back, up, back inverse, up, back, up, up, back inverse, up (yellow cross aligned)");
+   finalCommands += "back, up, back inverse, up, back, up, up, back inverse, up, ";
 }
 
 function solveYellowCrossRedGreen(cube) {
@@ -1278,20 +1430,23 @@ function solveYellowCrossRedGreen(cube) {
    Ri(cube);
    U(cube);
 
-   console.log("right, up, right inverse, up, right, up, up, right inverse, up (yellow cross aligned)");
+   //console.log("right, up, right inverse, up, right, up, up, right inverse, up (yellow cross aligned)");
+   finalCommands += "right, up, right inverse, up, right, up, up, right inverse, up, ";
 }
 
 function solveYellowCrossBlueGreen(cube) {
    solveYellowCrossRedGreen(cube);
    Ui(cube);
-   console.log("up inverse");
+   //console.log("up inverse");
+   finalCommands += "up inverse";
    solveYellowCrossBlueRed(cube);
 }
 
 function solveYellowCrossOrangeRed(cube) {
    solveYellowCrossBlueRed(cube);
    Ui(cube);
-   console.log("up inverse");
+   //console.log("up inverse");
+   finalCommands += "up inverse";
    solveYellowCrossOrangeBlue(cube);
 }
 
@@ -1341,12 +1496,7 @@ function alignYellowCorners(cube) {
 
    else if (yellowRedGreenPositioned(cube))
       alignYellowRedGreen(cube);
-
-
-
-      console.log(count);
-
-
+      //console.log(count);
 } //alignYellowCorners
 
 //checks if cross is aligned
@@ -1386,7 +1536,8 @@ function alignYellowBlueRed(cube){
    Ui(cube);
    L(cube);
 
-   console.log("up, right, up inverse, left inverse, up, right inverse, up inverse, left");
+   //console.log("up, right, up inverse, left inverse, up, right inverse, up inverse, left");
+   finalCommands += "up, right, up inverse, left inverse, up, right inverse, up inverse, left, ";
 }
 
 function alignYellowOrangeBlue(cube){
@@ -1399,7 +1550,8 @@ function alignYellowOrangeBlue(cube){
    Ui(cube);
    B(cube);
 
-   console.log("up, front, up inverse, back inverse, up, front inverse, up inverse, back");
+   //console.log("up, front, up inverse, back inverse, up, front inverse, up inverse, back");
+   finalCommands += "up, front, up inverse, back inverse, up, front inverse, up inverse, back, ";
 }
 
 function alignYellowGreenOrange(cube){
@@ -1412,7 +1564,8 @@ function alignYellowGreenOrange(cube){
    Ui(cube);
    R(cube);
 
-   console.log("up, left, up inverse, right inverse, up, left inverse, up inverse, right");
+   //console.log("up, left, up inverse, right inverse, up, left inverse, up inverse, right");
+   finalCommands += "up, left, up inverse, right inverse, up, left inverse, up inverse, right, ";
 }
 
 function alignYellowRedGreen(cube){
@@ -1425,7 +1578,8 @@ function alignYellowRedGreen(cube){
    Ui(cube);
    F(cube);
 
-   console.log("up, back, up inverse, front inverse, up, back inverse, up inverse, front");
+   //console.log("up, back, up inverse, front inverse, up, back inverse, up inverse, front");
+   finalCommands += "up, back, up inverse, front inverse, up, back inverse, up inverse, front, ";
 }
 
 
@@ -1438,35 +1592,35 @@ function placeFinalCorners(cube) {
    while (cube[up][2][2] != 'Y') finalAlgorithm(cube);
 
    if ((cube[up][2][0] != 'Y') && (cube[up][0][2] != 'Y')){
-      U(cube); console.log("up");
+      U(cube); finalCommands += "up, ";
       while (cube[up][2][2] != 'Y') finalAlgorithm(cube);
-      U(cube); console.log("up");
+      U(cube); finalCommands += "up, ";
       while (cube[up][2][2] != 'Y') finalAlgorithm(cube);
-      U(cube); console.log("up");
+      U(cube); finalCommands += "up, ";
       while (cube[up][2][2] != 'Y') finalAlgorithm(cube);
       return;
    } else if ((cube[up][0][0] != 'Y') && (cube[up][0][2] != 'Y')){
-      Ui(cube); console.log("up inverse");
+      Ui(cube); finalCommands += "up inverse, ";
       while (cube[up][2][2] != 'Y') finalAlgorithm(cube);
-      Ui(cube); console.log("up inverse");
+      Ui(cube); finalCommands += "up inverse, ";
       while (cube[up][2][2] != 'Y') finalAlgorithm(cube);
       return;
    } else if ((cube[up][0][0] != 'Y') && (cube[up][2][0] != 'Y')){
-      U(cube); console.log("up");
+      U(cube); finalCommands += "up, ";
       while (cube[up][2][2] != 'Y') finalAlgorithm(cube);
-      U(cube); console.log("up");
+      U(cube); finalCommands += "up, ";
       while (cube[up][2][2] != 'Y') finalAlgorithm(cube);
       return;
    } else if (cube[up][2][0] != 'Y') {
-      U(cube); console.log("up");
+      U(cube); finalCommands += "up, ";
       while (cube[up][2][2] != 'Y') finalAlgorithm(cube);
       return;
    } else if (cube[up][0][2] != 'Y') {
-      Ui(cube); console.log("up inverse");
+      Ui(cube); finalCommands += "up inverse, ";
       while (cube[up][2][2] != 'Y') finalAlgorithm(cube);
       return;
    } else if (cube[up][0][0] != 'Y') {
-      U(cube); U(cube); console.log("up, up");
+      U(cube); U(cube); finalCommands += "up, up, ";
       while (cube[up][2][2] != 'Y') finalAlgorithm(cube);
       return;
    } else return;
@@ -1476,7 +1630,8 @@ function placeFinalCorners(cube) {
 //algorithm to place final corners in spot
 function finalAlgorithm(cube) {
    Ri(cube); Di(cube); R(cube); D(cube); Ri(cube); Di(cube); R(cube); D(cube);
-   console.log("right inverse, down inverse, right, down, right inverse, down inverse, right, down");
+   //console.log("right inverse, down inverse, right, down, right inverse, down inverse, right, down");
+   finalCommands += "right inverse, down inverse, right, down, right inverse, down inverse, right, down, ";
 }
 
 //aligns solved cube
@@ -1484,15 +1639,27 @@ function lastMove(cube) {
    if (cube[front][0][0] == 'B') return;
 
    U(cube);
-   if (cube[front][0][0] == 'B') return;
+   if (cube[front][0][0] == 'B'){
+      //console.log("up");
+      finalCommands += "up, ";
+      return;
+   }
    Ui(cube);
 
    Ui(cube);
-   if (cube[front][0][0] == 'B') return;
+   if (cube[front][0][0] == 'B'){
+      //console.log("up inverse");
+      finalCommands += "up inverse, ";
+      return;
+   }
    U(cube);
 
    U(cube); U(cube);
-   if (cube[front][0][0] == 'B') return;
+   if (cube[front][0][0] == 'B'){
+      //console.log("up, up");
+      finalCommands += "up, up, ";
+      return;
+   }
 }
 
 ////////////////////////
@@ -1500,14 +1667,16 @@ function lastMove(cube) {
 ////////////////////////
 
 //solves the cube!
-function solve(cube){
+function solve(){
    solveCross(cube);
    solveCorners(cube);
    solveMiddle(cube);
-   //solveYellowCross(cube);
-   //alignYellowCorners(cube);
-   //placeFinalCorners(cube);
-   //lastMove(cube);
+   solveYellowCross(cube);
+   alignYellowCorners(cube);
+   placeFinalCorners(cube);
+   lastMove(cube);
+   //visualize(cube);
+   console.log(finalCommands);
 }
 
 //sets the cube to a solved state
@@ -1538,20 +1707,10 @@ function solvedState(cube) {
          } //s
       } //x
    } //y
-
-   corner1 = [cube[up][0][2], cube[left][2][0], cube[front][0][0]];
-   corner2 = [cube[up][0][0], cube[back][2][0], cube[left][0][0]];
-   corner3 = [cube[up][2][0], cube[right][2][0], cube[back][0][0]];
-   corner4 = [cube[up][2][2], cube[front][2][0], cube[right][0][0]];
-   corner5 = [cube[down][0][0], cube[left][2][2], cube[front][0][2]];
-   corner6 = [cube[up][0][0], cube[back][2][0], cube[left][0][0]];
-   corner7 = [cube[up][2][0], cube[right][2][0], cube[back][0][0]];
-   corner8 = [cube[up][2][2], cube[front][2][0], cube[right][0][0]];
-
 } //solvedState
 
 //sets the cube to a randomized state
-function randomize(cube) {
+function randomize() {
    solvedState(cube);
    for (var i=0; i < 20; i++) {
       var randomNumber = Math.floor(Math.random() * 6); //random number 0-5
@@ -1562,6 +1721,7 @@ function randomize(cube) {
       else if (randomNumber == 4) F(cube);
       else if (randomNumber == 5) B(cube);
    }
+   visualize(cube);
 } //randomize
 
 //visuales cube layout on screen
