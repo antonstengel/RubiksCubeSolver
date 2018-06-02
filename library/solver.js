@@ -1765,45 +1765,8 @@ function solve(){
    placeFinalCorners(cube);
    lastMove(cube);
    //visualize(cube);
-   console.log("These rotations solve the white cross:");
-   console.log(commandSolveWhiteCross);
 
-   console.log("Place the first white corner:");
-   console.log(commandPositionWhiteCorner1);
-   console.log("Solve the first white corner:");
-   console.log(commandSolveWhiteCorner1);
-
-   console.log("Place the second white corner:");
-   console.log(commandPositionWhiteCorner2);
-   console.log("Solve the second white corner:");
-   console.log(commandSolveWhiteCorner2);
-
-   console.log("Place the third white corner:");
-   console.log(commandPositionWhiteCorner3);
-   console.log("Solve the third white corner:");
-   console.log(commandSolveWhiteCorner3);
-
-   console.log("Place the fourth white corner:");
-   console.log(commandPositionWhiteCorner4);
-   console.log("Solve the fourth white corner:");
-   console.log(commandSolveWhiteCorner4);
-
-   console.log("All the steps to solve the middle edge pieces:");
-   console.log(commandSolveMiddleEdges);
-
-   console.log("Creates the yellow cross:");
-   console.log(commandSolveYellowCross);
-
-   console.log("Aligns the yellow cross:");
-   console.log(commandAlignYellowCross);
-
-   console.log("Puts yellow corners in the right place:");
-   console.log(commandAlignYellowCorners);
-
-
-
-   console.log("Solve the rest:");
-   console.log(finalCommands);
+   displaySolve();
 }
 
 //sets the cube to a solved state
@@ -1864,37 +1827,37 @@ function visualize(cube) {
             var smallY = 0; //y-location of individual piece
 
             if(s == front){
-               bigX = 150;
-               bigY = 150;
+               bigX = 120;
+               bigY = 120;
             }
             else if(s == up){
-               bigX = 150;
+               bigX = 120;
                bigY = 0;
             }
             else if(s == down){
-               bigX = 150;
-               bigY = 300;
+               bigX = 120;
+               bigY = 240;
             }
             else if(s == right){
-               bigX = 300;
-               bigY = 150;
+               bigX = 240;
+               bigY = 120;
             }
             else if(s == left){
                bigX = 0;
-               bigY = 150;
+               bigY = 120;
             }
             else{
-               bigX = 450;
-               bigY = 150;
+               bigX = 360;
+               bigY = 120;
             }
 
             if (x == 0) smallX = 0;
-            else if (x == 1) smallX = 50;
-            else smallX = 100;
+            else if (x == 1) smallX = 40;
+            else smallX = 80;
 
             if (y == 0) smallY = 0;
-            else if (y == 1) smallY = 50;
-            else smallY = 100;
+            else if (y == 1) smallY = 40;
+            else smallY = 80;
 
             strokeWeight(6);
             if (cube[s][x][y] == 'B') fill(0,0,255);
@@ -1903,7 +1866,7 @@ function visualize(cube) {
             else if (cube[s][x][y] == 'R') fill(255,0,0);
             else if (cube[s][x][y] == 'O') fill(255,150,0);
             else if (cube[s][x][y] == 'G') fill(0,250,0);
-            rect(smallX + bigX, smallY + bigY, 50, 50, 8);
+            rect(smallX + bigX, smallY + bigY, 40, 40, 8);
          } //y
       } //x
    } //s

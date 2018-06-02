@@ -1,28 +1,49 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
-    <style> body {padding: 0; margin: 0;} </style>
-    <script src="library/p5.min.js"></script>
-    <script src="library/p5.dom.min.js"></script>
-    <script src="library/p5.sound.min.js"></script>
-    <script src="library/rotationsLibrary.js"></script>
-    <script src="library/solver.js"></script>
-    <script src="sketch.js"></script>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700|Roboto:300,300i,400" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  </head>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+        <style> body {padding: 0; margin: 0;} </style>
+        <script src="library/p5.min.js"></script>
+        <script src="library/p5.dom.min.js"></script>
+        <script src="library/p5.sound.min.js"></script>
+        <script src="library/rotationsLibrary.js"></script>
+        <script src="library/solver.js"></script>
+        <script src="sketch.js"></script>
+        <link rel="stylesheet" href="styles.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700|Roboto:300,300i,400" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
 
 
-  <body>
+    <body>
         <h1 id="headerText">Rubik's Cube Solver</h1>
-       
 
-     <script>
-     document.addEventListener("click", inputTest);
-     </script>
+        <form>
+            <div style="text-align:center; margin-bottom:20px;">
+                <div>
+                    <label for="cubeInput">Input your cube: </label>
+                    <input type="text" id="cubeInput" name="name">
 
-  </body>
+                    <button type="submit" form="cubeInput" value="Submit" onclick="submitCubeText();">Input</button>
+                    <button type="button" onclick="randomizeInit();">Randomize</button>
+                    <button type="button" onclick="solveInit();">Solve</button>
+                    <button type="button" onclick="showInstructions();">Instructions</button>
+                </div>  
+            </div>
+        </form>
+
+        <div id="instructionsDiv">
+            <p id="instructionsText">Input your Rubik's cube layout by writing 'R' for red, 'G' for green, 'B' for blue, 'W' for white, 'Y' for yellow, and 'O' for orange. <br> Follow the numbers for what order to list your cube face colors. Imagine the cube as layed out on a 2D surface. The center 3x3 of squares is the front face. The 3x3 of squares to the left of the center one is the left face. The 3x3 to the right is the right face. The 3x3 to the farthest right is the back face. The one above the center 3x3 is the up face. The one below is the down face.<br> Click on the input button to set the input once you type in your layout. Click on the solve button to see how to solve your cube. Click on the randomize button to put the cube in a randomized layout if you feel like it.</p>
+
+            <img src="photos/directions.png" id="directionsPhoto">
+            <img src="photos/directionsSides.png" id="directionsPhoto">
+        </div>
+        
+        <p id="demo"></p>
+
+        <script>
+            document.addEventListener("click", inputTest);
+        </script>
+    </body>
 </html>
