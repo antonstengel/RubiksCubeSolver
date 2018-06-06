@@ -47,8 +47,8 @@ function setup() {
       }
    }
 
-   randomize(cube);
-   //solve(cube);
+
+   solvedState(cube);
    visualize(cube);
 
 
@@ -79,8 +79,12 @@ function submitCubeText() {
 }
 
 function solveInit(){
+
    solve(cube);
    visualize(cube);
+
+   var x = document.getElementById("divBottonToggleSolveSteps");
+   x.style.display = "block";
 }
 
 function randomizeInit(){
@@ -100,8 +104,18 @@ function showInstructions() {
    }
 }
 
+function hideSolution() {
+   var x = document.getElementById("divAroundSolution");
+
+   if(x.style.display == "none") {
+      x.style.display = "block";
+   } else {
+      x.style.display = "none";
+   }
+}
+
 function displaySolve() {
-   document.getElementById("demo").innerHTML = "(If one of the lines are empty it's because that section is already solved) <br> <b> These rotations  solve the white cross: </b> <br>" + commandSolveWhiteCross + "<br> <b> Place the first white corner: </b> <br>" + commandPositionWhiteCorner1 + "<br> <b> Solve the first white corner: </b> <br>" + commandSolveWhiteCorner1 + "<br> <b> Place the second white corner: </b> <br>" + commandPositionWhiteCorner2 + "<br> <b> Solve the second white corner: </b> <br>" + commandSolveWhiteCorner2 + "<br> <b> Place the third white corner: </b> <br>" + commandPositionWhiteCorner3 + "<br> <b> Solve the third white corner: </b> <br>" + commandSolveWhiteCorner3 + "<br> <b> Place the fourth white corner: </b> <br>" + commandPositionWhiteCorner4 + "<br> <b> Solve the fourth white corner: </b> <br>" + "<br> <b>All the steps to solve the middle edge places:</b> <br>" + commandSolveMiddleEdges + "<br> <b> Creates the yellow cross: </b> <br>" + commandSolveYellowCross + "<br> <b> Aligns the yellow cross: </b> <br>" + commandAlignYellowCross + "<br> <b> Puts yellow corners in the right place: </b> <br>" + commandAlignYellowCorners + "<br> <b> Solves the rest (I'm too lazy to write out instructions): </b> <br>" + finalCommands;
+   document.getElementById("demo").innerHTML = "(If one of the lines are empty it's because that section is already solved) <br> <b> These rotations  solve the white cross: </b> <br>" + commandSolveWhiteCross + "<br> <b> Place the first white corner: </b> <br>" + commandPositionWhiteCorner1 + "<br> <b> Solve the first white corner: </b> <br>" + commandSolveWhiteCorner1 + "<br> <b> Place the second white corner: </b> <br>" + commandPositionWhiteCorner2 + "<br> <b> Solve the second white corner: </b> <br>" + commandSolveWhiteCorner2 + "<br> <b> Place the third white corner: </b> <br>" + commandPositionWhiteCorner3 + "<br> <b> Solve the third white corner: </b> <br>" + commandSolveWhiteCorner3 + "<br> <b> Place the fourth white corner: </b> <br>" + commandPositionWhiteCorner4 + "<br> <b> Solve the fourth white corner: </b> <br>" + commandSolveWhiteCorner4 + "<br> <b>All the steps to solve the middle edge places:</b>" + commandSolveMiddleEdges + "<br> <b> Creates the yellow cross: </b>" + commandSolveYellowCross + "<br> <b> Aligns the yellow cross: </b>" + commandAlignYellowCross + "<br> <b> Puts yellow corners in the right place: </b>" + commandAlignYellowCorners + "<br> <b>Puts corners in place: </b>" + finalCommands;
    //document.getElementById("demo").innerHTML = commandSolveWhiteCross;
 
    // console.log("These rotations solve the white cross:");

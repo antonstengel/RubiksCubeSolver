@@ -89,7 +89,20 @@ label {
 
 #demo {
     text-align: center;
-    margin-left: 200px;
-    margin-right: 200px;
+    width: 80%;
+    margin: auto;
     margin-bottom: 20px;
+}
+
+#hideSolutions {
+    display: flex;
+    justify-content: center;
+}
+
+#divAroundSolution {
+    display: block;
+}
+
+#divBottonToggleSolveSteps {
+    display: none;
 }

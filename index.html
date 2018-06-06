@@ -34,14 +34,22 @@
         </form>
 
         <div id="instructionsDiv">
-            <p id="instructionsText">Input your Rubik's cube layout by writing 'R' for red, 'G' for green, 'B' for blue, 'W' for white, 'Y' for yellow, and 'O' for orange. <br> Follow the numbers for what order to list your cube face colors. Imagine the cube as layed out on a 2D surface. The center 3x3 of squares is the front face. The 3x3 of squares to the left of the center one is the left face. The 3x3 to the right is the right face. The 3x3 to the farthest right is the back face. The one above the center 3x3 is the up face. The one below is the down face.<br> Click on the input button to set the input once you type in your layout. Click on the solve button to see how to solve your cube. Click on the randomize button to put the cube in a randomized layout if you feel like it.</p>
+            <p id="instructionsText">Input your Rubik's cube layout by writing 'R' for red, 'G' for green, 'B' for blue, 'W' for white, 'Y' for yellow, and 'O' for orange. <br> Follow the numbers for what order to list your cube face colors. Imagine the cube as layed out on a 2D surface. The center 3x3 of squares is the front face. The 3x3 of squares to the left of the center one is the left face. The 3x3 to the right is the right face, etc... Click on the input button to set the input once you type in your layout. Click on the solve button to see how to solve your cube. Click on the randomize button to put the cube in a randomized layout if you feel like it. <br> Each rotation that it tells you to do is the clockwise rotation looking straight at that side. An inverse rotation is counterclockwise. </p>
 
             <img src="photos/directions.png" id="directionsPhoto">
             <img src="photos/directionsSides.png" id="directionsPhoto">
         </div>
         
-        <p id="demo"></p>
-
+        <div id="divAroundSolution">
+            <p id="demo"></p>
+        </div>
+        
+        <div id="divBottonToggleSolveSteps" style="text-align:center; margin:auto; margin-bottom:20px; width: 212px;">
+            <div style="width:212px;">
+                <button type="button" id="hideSolutions" onclick="hideSolution();">Toggle Steps to Solve Cube</button>
+            </div>
+        </div>
+                
         <script>
             document.addEventListener("click", inputTest);
         </script>

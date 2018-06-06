@@ -661,7 +661,7 @@ function solveCorners(cube) {
          U(cube);
          Bi(cube);
          //console.log("back, up, up, back inverse, up inverse, back, up, front inverse (fourth corner solved)")
-         var txt = "back, up, up, back inverse, up inverse, back, up, front inverse, ";
+         var txt = "back, up, up, back inverse, up inverse, back, up, back inverse, ";
          commandSolveWhiteCorner4 += txt;
       }
    }
@@ -1087,6 +1087,9 @@ function anyMiddlesCanBeSolved(cube) {
       Ui(cube); Ui(cube); Ui(cube);
       return true;
    }
+
+   Ui(cube); Ui(cube); Ui(cube);
+   return false;
 } //anyMiddlesCanBeSolved
 
 
@@ -1094,7 +1097,7 @@ function solveBlueRed(cube) {
    U(cube); R(cube); Ui(cube); Ri(cube); Ui(cube); Fi(cube); U(cube); F(cube);
    //console.log("up, right, up inverse, right inverse, up inverse, front inverse, up, front (blue-red edge solved)");
    var txt = "up, right, up inverse, right inverse, up inverse, front inverse, up, front, ";
-   commandSolveMiddleEdges += "Solves a middle edge piece: ";
+   commandSolveMiddleEdges += "<br>Solves a middle edge piece: ";
    commandSolveMiddleEdges += txt;
 }
 
@@ -1102,7 +1105,7 @@ function solveBlueRed1(cube) {
    U(cube); R(cube); Ui(cube); Ri(cube); Ui(cube); Fi(cube); U(cube); F(cube);
    //console.log("up, right, up inverse, right inverse, up inverse, front inverse, up, front (blue-red edge solved)");
    var txt = "up, right, up inverse, right inverse, up inverse, front inverse, up, front, ";
-   commandSolveMiddleEdges += "Removes a middle piece so it can be solved: ";
+   commandSolveMiddleEdges += "<br>Removes a middle piece so it can be solved: ";
    commandSolveMiddleEdges += txt;
 }
 
@@ -1110,7 +1113,7 @@ function solveBlueOrange(cube) {
    Ui(cube); Li(cube); U(cube); L(cube); U(cube); F(cube); Ui(cube); Fi(cube);
    //console.log("up inverse, left inverse, up, left, up, front, up inverse, front inverse (blue-orange edge solved)");
    var txt = "up inverse, left inverse, up, left, up, front, up inverse, front inverse, ";
-   commandSolveMiddleEdges += "Solves a middle edge piece: ";
+   commandSolveMiddleEdges += "<br>Solves a middle edge piece: ";
    commandSolveMiddleEdges += txt;
 }
 
@@ -1118,7 +1121,7 @@ function solveBlueOrange1(cube) {
    Ui(cube); Li(cube); U(cube); L(cube); U(cube); F(cube); Ui(cube); Fi(cube);
    //console.log("up inverse, left inverse, up, left, up, front, up inverse, front inverse (blue-orange edge solved)");
    var txt = "up inverse, left inverse, up, left, up, front, up inverse, front inverse, ";
-   commandSolveMiddleEdges += "Removes a middle piece so it can be solved: ";
+   commandSolveMiddleEdges += "<br>Removes a middle piece so it can be solved: ";
    commandSolveMiddleEdges += txt;
 }
 
@@ -1126,7 +1129,7 @@ function solveOrangeBlue(cube) {
    U(cube); F(cube); Ui(cube); Fi(cube); Ui(cube); Li(cube); U(cube); L(cube);
    //console.log("up, front, up inverse, front inverse, up inverse, left inverse, up, left (orangle-blue edge solved)");
    var txt = "up, front, up inverse, front inverse, up inverse, left inverse, up, left, ";
-   commandSolveMiddleEdges += "Solves a middle edge piece: ";
+   commandSolveMiddleEdges += "<br>Solves a middle edge piece: ";
    commandSolveMiddleEdges += txt;
 }
 
@@ -1134,7 +1137,7 @@ function solveOrangeGreen(cube) {
    Ui(cube); Bi(cube); U(cube); B(cube); U(cube); L(cube); Ui(cube); Li(cube);
    //console.log("up inverse, back inverse, up, back, up, left, up inverse, left inverse (orange-green edge solved)");
    var txt = "up inverse, back inverse, up, back, up, left, up inverse, left inverse, ";
-   commandSolveMiddleEdges += "Solves a middle edge piece: ";
+   commandSolveMiddleEdges += "<br>Solves a middle edge piece: ";
    commandSolveMiddleEdges += txt;
 }
 
@@ -1142,7 +1145,7 @@ function solveGreenOrange(cube) {
    U(cube); L(cube); Ui(cube); Li(cube); Ui(cube); Bi(cube); U(cube); B(cube);
    //console.log("up, left, up inverse, left inverse, up inverse, back inverse, up, back (green-orange edge solved)");
    var txt = "up, left, up inverse, left inverse, up inverse, back inverse, up, back, ";
-   commandSolveMiddleEdges += "Solves a middle edge piece: ";
+   commandSolveMiddleEdges += "<br>Solves a middle edge piece: ";
    commandSolveMiddleEdges += txt;
 }
 
@@ -1150,7 +1153,7 @@ function solveGreenOrange1(cube) {
    U(cube); L(cube); Ui(cube); Li(cube); Ui(cube); Bi(cube); U(cube); B(cube);
    //console.log("up, left, up inverse, left inverse, up inverse, back inverse, up, back (green-orange edge solved)");
    var txt = "up, left, up inverse, left inverse, up inverse, back inverse, up, back, ";
-   commandSolveMiddleEdges += "Removes a middle piece so it can be solved: ";
+   commandSolveMiddleEdges += "<br>Removes a middle piece so it can be solved: ";
    commandSolveMiddleEdges += txt;
 }
 
@@ -1158,7 +1161,7 @@ function solveGreenRed(cube) {
    Ui(cube); Ri(cube); U(cube); R(cube); U(cube); B(cube); Ui(cube); Bi(cube);
    //console.log("up inverse, right inverse, up, right, up, back, up inverse, back inverse (green-red edge solved)");
    var txt = "up inverse, right inverse, up, right, up, back, up inverse, back inverse, ";
-   commandSolveMiddleEdges += "Solves a middle edge piece: ";
+   commandSolveMiddleEdges += "<br>Solves a middle edge piece: ";
    commandSolveMiddleEdges += txt;
 }
 
@@ -1166,7 +1169,7 @@ function solveRedGreen(cube) {
    U(cube); B(cube); Ui(cube); Bi(cube); Ui(cube); Ri(cube); U(cube); R(cube);
    //console.log("up, back, up inverse, back inverse, up inverse, right inverse, up, right (red-green edge solved)");
    var txt = "up, back, up inverse, back inverse, up inverse, right inverse, up, right, ";
-   commandSolveMiddleEdges += "Solves a middle edge piece: ";
+   commandSolveMiddleEdges += "<br>Solves a middle edge piece: ";
    commandSolveMiddleEdges += txt;
 }
 
@@ -1174,7 +1177,7 @@ function solveRedGreen1(cube) {
    U(cube); B(cube); Ui(cube); Bi(cube); Ui(cube); Ri(cube); U(cube); R(cube);
    //console.log("up, back, up inverse, back inverse, up inverse, right inverse, up, right (red-green edge solved)");
    var txt = "up, back, up inverse, back inverse, up inverse, right inverse, up, right, ";
-   commandSolveMiddleEdges += "Removes a middle piece so it can be solved: ";
+   commandSolveMiddleEdges += "<br>Removes a middle piece so it can be solved: ";
    commandSolveMiddleEdges += txt;
 }
 
@@ -1182,7 +1185,7 @@ function solveRedBlue(cube) {
    Ui(cube); Fi(cube); U(cube); F(cube); U(cube); R(cube); Ui(cube); Ri(cube);
    //console.log("up inverse, front inverse, up, front, up, right, up inverse, right inverse (red-blue edge solved)");
    var txt = "up inverse, front inverse, up, front, up, right, up inverse, right inverse, ";
-   commandSolveMiddleEdges += "Solves a middle edge piece: ";
+   commandSolveMiddleEdges += "<br>Solves a middle edge piece: ";
    commandSolveMiddleEdges += txt;
 }
 
@@ -1193,7 +1196,7 @@ function solveMiddle(cube) {
       Ui(cube)
       if(middlesCanBeSolved(cube)){
          //console.log("up inverse");
-         commandSolveMiddleEdges += "Lines up edges to be solved: up inverse, ";
+         commandSolveMiddleEdges += "<br>Lines up edges to be solved: up inverse, ";
          solveAvailableMiddles(cube);
       } else U(cube);
 
@@ -1214,7 +1217,7 @@ function solveMiddle(cube) {
       Ui(cube)
       if(middlesCanBeSolved(cube)){
          //console.log("up inverse");
-         commandSolveMiddleEdges += "Lines up edges to be solved: up inverse, ";
+         commandSolveMiddleEdges += "<br>Lines up edges to be solved: up inverse, ";
          solveAvailableMiddles(cube);
       } else U(cube);
 
@@ -1223,7 +1226,7 @@ function solveMiddle(cube) {
       if(middleEdgesSolved(cube)) return;
 
       U(cube); //console.log("up");
-      commandSolveMiddleEdges += "Lines up edges to be solved: up, ";
+      commandSolveMiddleEdges += "<br>Lines up edges to be solved: up, ";
    }
 
    if (((cube[front][2][1] == 'B') && (cube[right][0][1] == 'R')) != true) solveBlueRed1(cube);
@@ -1235,7 +1238,7 @@ function solveMiddle(cube) {
       Ui(cube)
       if(middlesCanBeSolved(cube)){
          //console.log("up inverse");
-         commandSolveMiddleEdges += "Lines up edges to be solved: up inverse, ";
+         commandSolveMiddleEdges += "<br>Lines up edges to be solved: up inverse, ";
          solveAvailableMiddles(cube);
       } else U(cube);
 
@@ -1244,7 +1247,7 @@ function solveMiddle(cube) {
       if(middleEdgesSolved(cube)) return;
 
       U(cube); //console.log("up");
-      commandSolveMiddleEdges += "Lines up edges to be solved: up, ";
+      commandSolveMiddleEdges += "<br>Lines up edges to be solved: up, ";
    }
 
 
@@ -1264,7 +1267,7 @@ function placeYellowCross(cube) {
    else if ((cube[up][0][1] != 'Y') && (cube[up][2][1] != 'Y') && (cube[up][1][0] == 'Y') && (cube[up][1][2] == 'Y')) {
       U(cube);
       //console.log("up");
-      commandSolveYellowCross += "Rotates top to align yellow 'line': up, ";
+      commandSolveYellowCross += "<br> Rotates top to align yellow 'line': up, ";
       solveYellowLine(cube);
    }
    else if ((cube[up][0][1] == 'Y') && (cube[up][2][1] == 'Y') && (cube[up][1][0] != 'Y') && (cube[up][1][2] != 'Y')) {
@@ -1276,19 +1279,19 @@ function placeYellowCross(cube) {
    else if ((cube[up][0][1] != 'Y') && (cube[up][1][0] == 'Y') && (cube[up][2][1] == 'Y') && (cube[up][1][2] != 'Y')) {
       Ui(cube);
       //console.log("up inverse");
-      commandSolveYellowCross += "Rotates top to align yellow 'V': up inverse, ";
+      commandSolveYellowCross += "<br>Rotates top to align yellow 'V': up inverse, ";
       solveYellowV(cube);
    }
    else if ((cube[up][0][1] != 'Y') && (cube[up][1][0] != 'Y') && (cube[up][2][1] == 'Y') && (cube[up][1][2] == 'Y')) {
       U(cube); U(cube);
       //console.log("up, up");
-      commandSolveYellowCross += "Rotates top to align yellow 'V': up, up, ";
+      commandSolveYellowCross += "<br>Rotates top to align yellow 'V': up, up, ";
       solveYellowV(cube);
    }
    else if ((cube[up][0][1] == 'Y') && (cube[up][1][0] != 'Y') && (cube[up][2][1] != 'Y') && (cube[up][1][2] == 'Y')) {
       U(cube);
       //console.log("up");
-      commandSolveYellowCross += "Rotates top to align yellow 'V': up, ";
+      commandSolveYellowCross += "<br>Rotates top to align yellow 'V': up, ";
       solveYellowV(cube);
    }
 }
@@ -1299,7 +1302,7 @@ function solveYellowV(cube) {
    Ui(cube); Fi(cube);
 
    //console.log("front, right, up, right inverse, up inverse, right, up, right inverse, up inverse, front inverse (yellow cross created)");
-   commandSolveYellowCross += "Solves the yellow 'V' when positioned properly: front, right, up, right inverse, up inverse, right, up, right inverse, up inverse, front inverse ";
+   commandSolveYellowCross += "<br>Solves the yellow 'V' when positioned properly: front, right, up, right inverse, up inverse, right, up, right inverse, up inverse, front inverse ";
 }
 
 //makes the yellow cross given a yellow dot
@@ -1316,7 +1319,7 @@ function solveYellowDot(cube) {
 
 
    //console.log("front, right, up, right inverse, up inverse, front inverse, up, up (yellow V created)");
-   commandSolveYellowCross += "Turns yellow 'dot' into yellow 'V': front, right, up, right inverse, up inverse, front inverse, Rotates top to align yellow 'V': up, up, ";
+   commandSolveYellowCross += "<br>Turns yellow 'dot' into yellow 'V': front, right, up, right inverse, up inverse, front inverse, Rotates top to align yellow 'V': up, up, ";
 
    solveYellowV(cube);
 }
@@ -1330,7 +1333,7 @@ function solveYellowLine(cube) {
    Ui(cube);
    Fi(cube);
    //console.log("front, right, up, right inverse, up inverse, front inverse (yellow cross created)");
-   commandSolveYellowCross += "Solves yellow 'line': front, right, up, right inverse, up inverse, front inverse, ";
+   commandSolveYellowCross += "<br>Solves yellow 'line': front, right, up, right inverse, up inverse, front inverse, ";
 }
 
 //aligns sides of yellow cross
@@ -1431,7 +1434,7 @@ function solveYellowCrossBlueRed(cube) {
    U(cube);
 
    //console.log("front, up, front inverse, up, front, up, up, front inverse, up (yellow cross aligned)");
-   commandAlignYellowCross += "Turns two aligned edges into all four: front, up, front inverse, up, front, up, up, front inverse, up, ";
+   commandAlignYellowCross += "<br>Turns two aligned edges into all four: front, up, front inverse, up, front, up, up, front inverse, up, ";
 }
 
 function solveYellowCrossBlueRed1(cube) {
@@ -1446,7 +1449,7 @@ function solveYellowCrossBlueRed1(cube) {
    U(cube);
 
    //console.log("front, up, front inverse, up, front, up, up, front inverse, up (yellow cross aligned)");
-   commandAlignYellowCross += "Turns two opposite aligned edges into two adjacently aligned edges: front, up, front inverse, up, front, up, up, front inverse, up, ";
+   commandAlignYellowCross += "<br>Turns two opposite aligned edges into two adjacently aligned edges: front, up, front inverse, up, front, up, up, front inverse, up, ";
 }
 
 function solveYellowCrossOrangeBlue(cube) {
@@ -1461,7 +1464,7 @@ function solveYellowCrossOrangeBlue(cube) {
    U(cube);
 
    //console.log("left, up, left inverse, up, left, up, up, left inverse, up (yellow cross aligned)");
-   commandAlignYellowCross += "Turns two aligned edges into all four: left, up, left inverse, up, left, up, up, left inverse, up, ";
+   commandAlignYellowCross += "<br>Turns two aligned edges into all four: left, up, left inverse, up, left, up, up, left inverse, up, ";
 }
 
 function solveYellowCrossGreenOrange(cube) {
@@ -1476,7 +1479,7 @@ function solveYellowCrossGreenOrange(cube) {
    U(cube);
 
    //console.log("back, up, back inverse, up, back, up, up, back inverse, up (yellow cross aligned)");
-   commandAlignYellowCross += "Turns two aligned edges into all four: back, up, back inverse, up, back, up, up, back inverse, up, ";
+   commandAlignYellowCross += "<br>Turns two aligned edges into all four: back, up, back inverse, up, back, up, up, back inverse, up, ";
 }
 
 function solveYellowCrossRedGreen(cube) {
@@ -1491,7 +1494,7 @@ function solveYellowCrossRedGreen(cube) {
    U(cube);
 
    //console.log("right, up, right inverse, up, right, up, up, right inverse, up (yellow cross aligned)");
-   commandAlignYellowCross += "Turns two aligned edges into all four: right, up, right inverse, up, right, up, up, right inverse, up, ";
+   commandAlignYellowCross += "<br>Turns two aligned edges into all four: right, up, right inverse, up, right, up, up, right inverse, up, ";
 }
 
 function solveYellowCrossRedGreen1(cube) {
@@ -1506,7 +1509,7 @@ function solveYellowCrossRedGreen1(cube) {
    U(cube);
 
    //console.log("right, up, right inverse, up, right, up, up, right inverse, up (yellow cross aligned)");
-   commandAlignYellowCross += "Turns oppose two aligned edges into all two adjacently aligned edges: right, up, right inverse, up, right, up, up, right inverse, up, ";
+   commandAlignYellowCross += "<br>Turns oppose two aligned edges into all two adjacently aligned edges: right, up, right inverse, up, right, up, up, right inverse, up, ";
 }
 
 function solveYellowCrossBlueGreen(cube) {
@@ -1612,7 +1615,7 @@ function alignYellowBlueRed(cube){
    L(cube);
 
    //console.log("up, right, up inverse, left inverse, up, right inverse, up inverse, left");
-   commandAlignYellowCorners += "Puts each yellow corner in the right place: up, right, up inverse, left inverse, up, right inverse, up inverse, left, ";
+   commandAlignYellowCorners += "<br>Puts each yellow corner in the right place: up, right, up inverse, left inverse, up, right inverse, up inverse, left, ";
 }
 
 function alignYellowBlueRed1(cube){
@@ -1626,7 +1629,7 @@ function alignYellowBlueRed1(cube){
    L(cube);
 
    //console.log("up, right, up inverse, left inverse, up, right inverse, up inverse, left");
-   commandAlignYellowCorners += "Runs algorithm to get at least one yellow corner in correct place: up, right, up inverse, left inverse, up, right inverse, up inverse, left, ";
+   commandAlignYellowCorners += "<br>Runs algorithm to get at least one yellow corner in correct place: up, right, up inverse, left inverse, up, right inverse, up inverse, left, ";
 }
 
 function alignYellowOrangeBlue(cube){
@@ -1640,7 +1643,7 @@ function alignYellowOrangeBlue(cube){
    B(cube);
 
    //console.log("up, front, up inverse, back inverse, up, front inverse, up inverse, back");
-   commandAlignYellowCorners += "Puts each yellow corner in the right place: up, front, up inverse, back inverse, up, front inverse, up inverse, back, ";
+   commandAlignYellowCorners += "<br>Puts each yellow corner in the right place: up, front, up inverse, back inverse, up, front inverse, up inverse, back, ";
 }
 
 function alignYellowGreenOrange(cube){
@@ -1654,7 +1657,7 @@ function alignYellowGreenOrange(cube){
    R(cube);
 
    //console.log("up, left, up inverse, right inverse, up, left inverse, up inverse, right");
-   commandAlignYellowCorners += "Puts each yellow corner in the right place: up, left, up inverse, right inverse, up, left inverse, up inverse, right, ";
+   commandAlignYellowCorners += "<br>Puts each yellow corner in the right place: up, left, up inverse, right inverse, up, left inverse, up inverse, right, ";
 }
 
 function alignYellowRedGreen(cube){
@@ -1668,7 +1671,7 @@ function alignYellowRedGreen(cube){
    F(cube);
 
    //console.log("up, back, up inverse, front inverse, up, back inverse, up inverse, front");
-   commandAlignYellowCorners += "Puts each yellow corner in the right place: up, back, up inverse, front inverse, up, back inverse, up inverse, front, ";
+   commandAlignYellowCorners += "<br>Puts each yellow corner in the right place: up, back, up inverse, front inverse, up, back inverse, up inverse, front, ";
 }
 
 
@@ -1678,39 +1681,50 @@ function alignYellowRedGreen(cube){
 
 //places the final corners in their spot
 function placeFinalCorners(cube) {
-   while (cube[up][2][2] != 'Y') finalAlgorithm(cube);
+   if (cube[up][2][2] != 'Y') finalCommands += "<br> Position corner: ";
+   while (cube[up][2][2] != 'Y') { finalAlgorithm(cube); }
 
    if ((cube[up][2][0] != 'Y') && (cube[up][0][2] != 'Y')){
-      U(cube); finalCommands += "up, ";
-      while (cube[up][2][2] != 'Y') finalAlgorithm(cube);
-      U(cube); finalCommands += "up, ";
-      while (cube[up][2][2] != 'Y') finalAlgorithm(cube);
-      U(cube); finalCommands += "up, ";
-      while (cube[up][2][2] != 'Y') finalAlgorithm(cube);
+      U(cube); finalCommands += "<br> Rotate top: up, ";
+      finalCommands += "<br> Position corner: ";
+      while (cube[up][2][2] != 'Y') { finalAlgorithm(cube); }
+      U(cube); finalCommands += "<br> Rotate top: up, ";
+      finalCommands += "<br> Position corner: ";
+      while (cube[up][2][2] != 'Y') { finalAlgorithm(cube); }
+      U(cube); finalCommands += "<br> Rotate top: up, ";
+      finalCommands += "<br> Position corner: ";
+      while (cube[up][2][2] != 'Y') { finalAlgorithm(cube); }
       return;
    } else if ((cube[up][0][0] != 'Y') && (cube[up][0][2] != 'Y')){
-      Ui(cube); finalCommands += "up inverse, ";
-      while (cube[up][2][2] != 'Y') finalAlgorithm(cube);
-      Ui(cube); finalCommands += "up inverse, ";
-      while (cube[up][2][2] != 'Y') finalAlgorithm(cube);
+      Ui(cube); finalCommands += "<br> Rotate top: up inverse, ";
+      finalCommands += "<br> Position corner: ";
+      while (cube[up][2][2] != 'Y') { finalAlgorithm(cube); }
+      Ui(cube); finalCommands += "<br> Rotate top: up inverse, ";
+      finalCommands += "<br> Position corner: ";
+      while (cube[up][2][2] != 'Y') { finalAlgorithm(cube); }
       return;
    } else if ((cube[up][0][0] != 'Y') && (cube[up][2][0] != 'Y')){
-      U(cube); finalCommands += "up, ";
-      while (cube[up][2][2] != 'Y') finalAlgorithm(cube);
-      U(cube); finalCommands += "up, ";
-      while (cube[up][2][2] != 'Y') finalAlgorithm(cube);
+      U(cube); finalCommands += "<br> Rotate top: up, ";
+      finalCommands += "<br> Position corner: ";
+      while (cube[up][2][2] != 'Y') { finalAlgorithm(cube); }
+      U(cube); finalCommands += "<br> Rotate top: up, ";
+      finalCommands += "<br> Position corner: ";
+      while (cube[up][2][2] != 'Y') { finalAlgorithm(cube); }
       return;
    } else if (cube[up][2][0] != 'Y') {
-      U(cube); finalCommands += "up, ";
-      while (cube[up][2][2] != 'Y') finalAlgorithm(cube);
+      U(cube); finalCommands += "<br> Rotate top: up, ";
+      finalCommands += "<br> Position corner: ";
+      while (cube[up][2][2] != 'Y') { finalAlgorithm(cube); }
       return;
    } else if (cube[up][0][2] != 'Y') {
-      Ui(cube); finalCommands += "up inverse, ";
-      while (cube[up][2][2] != 'Y') finalAlgorithm(cube);
+      Ui(cube); finalCommands += "<br> Rotate top: up inverse, ";
+      finalCommands += "<br> Position corner: ";
+      while (cube[up][2][2] != 'Y') { finalAlgorithm(cube); }
       return;
    } else if (cube[up][0][0] != 'Y') {
-      U(cube); U(cube); finalCommands += "up, up, ";
-      while (cube[up][2][2] != 'Y') finalAlgorithm(cube);
+      U(cube); U(cube); finalCommands += "<br> Rotate top: up, up, ";
+      finalCommands += "<br> Position corner: ";
+      while (cube[up][2][2] != 'Y') { finalAlgorithm(cube); }
       return;
    } else return;
 
@@ -1730,7 +1744,7 @@ function lastMove(cube) {
    U(cube);
    if (cube[front][0][0] == 'B'){
       //console.log("up");
-      finalCommands += "up, ";
+      finalCommands += "<br>Finish cube: up, ";
       return;
    }
    Ui(cube);
@@ -1738,7 +1752,7 @@ function lastMove(cube) {
    Ui(cube);
    if (cube[front][0][0] == 'B'){
       //console.log("up inverse");
-      finalCommands += "up inverse, ";
+      finalCommands += "<br>Finish cube: up inverse, ";
       return;
    }
    U(cube);
@@ -1746,7 +1760,7 @@ function lastMove(cube) {
    U(cube); U(cube);
    if (cube[front][0][0] == 'B'){
       //console.log("up, up");
-      finalCommands += "up, up, ";
+      finalCommands += "<br>Finish cube: up, up, ";
       return;
    }
 }
