@@ -51,10 +51,142 @@ function setup() {
    solvedState(cube);
    visualize(cube);
 
-
-
-
 } //setup
+
+
+
+
+function move(move) {
+   if (move == "front") {
+      F(cube);
+      console.log("front, ");
+   }
+   else if (move == "front inverse") {
+      Fi(cube);
+      console.log("front inverse, ");
+   }
+   else if (move == "right") {
+      R(cube);
+      console.log("right, ");
+   }
+   else if (move == "right inverse") {
+      Ri(cube);
+      console.log("right inverse, ");
+   }
+   else if (move == "left") {
+      L(cube);
+      console.log("left, ");
+   }
+   else if (move == "left inverse") {
+      Li(cube);
+      console.log("left inverse, ");
+   }
+   else if (move == "back") {
+      B(cube);
+      console.log("back, ");
+   }
+   else if (move == "back inverse") {
+      Bi(cube);
+      console.log("back inverse, ");
+   }
+   else if (move == "up") {
+      U(cube);
+      console.log("up, ");
+   }
+   else if (move == "up inverse") {
+      Ui(cube);
+      console.log("up inverse, ");
+   }
+   else if (move == "down") {
+      D(cube);
+      console.log("down, ");
+   }
+   else if (move == "down inverse") {
+      Di(cube);
+      console.log("down inverse, ");
+   }
+   else console.log("SOMETHING FUCKED UP");
+}
+
+function reverseMove(move) {
+   if (move == "front") {
+      Fi(cube);
+      console.log("front, ");
+   }
+   else if (move == "front inverse") {
+      F(cube);
+      console.log("front inverse, ");
+   }
+   else if (move == "right") {
+      Ri(cube);
+      console.log("right, ");
+   }
+   else if (move == "right inverse") {
+      R(cube);
+      console.log("right inverse, ");
+   }
+   else if (move == "left") {
+      Li(cube);
+      console.log("left, ");
+   }
+   else if (move == "left inverse") {
+      L(cube);
+      console.log("left inverse, ");
+   }
+   else if (move == "back") {
+      Bi(cube);
+      console.log("back, ");
+   }
+   else if (move == "back inverse") {
+      B(cube);
+      console.log("back inverse, ");
+   }
+   else if (move == "up") {
+      Ui(cube);
+      console.log("up, ");
+   }
+   else if (move == "up inverse") {
+      U(cube);
+      console.log("up inverse, ");
+   }
+   else if (move == "down") {
+      Di(cube);
+      console.log("down, ");
+   }
+   else if (move == "down inverse") {
+      D(cube);
+      console.log("down inverse, ");
+   }
+   else console.log("SOMETHING FUCKED UP");
+}
+
+function reverseCube() {
+   for (var i = 0; i < allCommandsArray.length; i ++){
+      reverseMove(allCommandsArray[allCommandsArray.length - 1 - i]);
+   }
+}
+
+var countForNext = -1;
+
+function next() {
+   countForNext++;
+   move(allCommandsArray[countForNext]);
+   console.log(countForNext);
+   visualize(cube);
+
+}
+
+function previous() {
+   if (countForNext > -1) {
+
+      reverseMove(allCommandsArray[countForNext]);
+      console.log(countForNext);
+      countForNext --;
+      visualize(cube);
+   }
+}
+
+
 
 
 
@@ -115,48 +247,7 @@ function hideSolution() {
 }
 
 function displaySolve() {
-   document.getElementById("demo").innerHTML = "(If one of the lines are empty it's because that section is already solved) <br> <b> These rotations  solve the white cross: </b> <br>" + commandSolveWhiteCross + "<br> <b> Place the first white corner: </b> <br>" + commandPositionWhiteCorner1 + "<br> <b> Solve the first white corner: </b> <br>" + commandSolveWhiteCorner1 + "<br> <b> Place the second white corner: </b> <br>" + commandPositionWhiteCorner2 + "<br> <b> Solve the second white corner: </b> <br>" + commandSolveWhiteCorner2 + "<br> <b> Place the third white corner: </b> <br>" + commandPositionWhiteCorner3 + "<br> <b> Solve the third white corner: </b> <br>" + commandSolveWhiteCorner3 + "<br> <b> Place the fourth white corner: </b> <br>" + commandPositionWhiteCorner4 + "<br> <b> Solve the fourth white corner: </b> <br>" + commandSolveWhiteCorner4 + "<br> <b>All the steps to solve the middle edge places:</b>" + commandSolveMiddleEdges + "<br> <b> Creates the yellow cross: </b>" + commandSolveYellowCross + "<br> <b> Aligns the yellow cross: </b>" + commandAlignYellowCross + "<br> <b> Puts yellow corners in the right place: </b>" + commandAlignYellowCorners + "<br> <b>Puts corners in place: </b>" + finalCommands;
-   //document.getElementById("demo").innerHTML = commandSolveWhiteCross;
-
-   // console.log("These rotations solve the white cross:");
-   // console.log(commandSolveWhiteCross);
-   //
-   // console.log("Place the first white corner:");
-   // console.log(commandPositionWhiteCorner1);
-   // console.log("Solve the first white corner:");
-   // console.log(commandSolveWhiteCorner1);
-   //
-   // console.log("Place the second white corner:");
-   // console.log(commandPositionWhiteCorner2);
-   // console.log("Solve the second white corner:");
-   // console.log(commandSolveWhiteCorner2);
-   //
-   // console.log("Place the third white corner:");
-   // console.log(commandPositionWhiteCorner3);
-   // console.log("Solve the third white corner:");
-   // console.log(commandSolveWhiteCorner3);
-   //
-   // console.log("Place the fourth white corner:");
-   // console.log(commandPositionWhiteCorner4);
-   // console.log("Solve the fourth white corner:");
-   // console.log(commandSolveWhiteCorner4);
-
-   // console.log("All the steps to solve the middle edge pieces:");
-   // console.log(commandSolveMiddleEdges);
-   //
-   // console.log("Creates the yellow cross:");
-   // console.log(commandSolveYellowCross);
-   //
-   // console.log("Aligns the yellow cross:");
-   // console.log(commandAlignYellowCross);
-   //
-   // console.log("Puts yellow corners in the right place:");
-   // console.log(commandAlignYellowCorners);
-   //
-   //
-   //
-   // console.log("Solve the rest:");
-   // console.log(finalCommands);
+   document.getElementById("demo").innerHTML = "(If one of the lines are empty it's because that section is already solved) <br> <b> These rotations  solve the white cross: </b> <br>" + commandSolveWhiteCross + "<br> <b> Place the first white corner: </b> <br>" + commandPositionWhiteCorner1 + "<br> <b> Solve the first white corner: </b> <br>" + commandSolveWhiteCorner1 + "<br> <b> Place the second white corner: </b> <br>" + commandPositionWhiteCorner2 + "<br> <b> Solve the second white corner: </b> <br>" + commandSolveWhiteCorner2 + "<br> <b> Place the third white corner: </b> <br>" + commandPositionWhiteCorner3 + "<br> <b> Solve the third white corner: </b> <br>" + commandSolveWhiteCorner3 + "<br> <b> Place the fourth white corner: </b> <br>" + commandPositionWhiteCorner4 + "<br> <b> Solve the fourth white corner: </b> <br>" + commandSolveWhiteCorner4 + "<br> <b>All the steps to solve the middle edge places:</b>" + commandSolveMiddleEdges + "<br> <b> Creates the yellow cross: </b>" + commandSolveYellowCross + "<br> <b> Aligns the yellow cross: </b>" + commandAlignYellowCross + "<br> <b> Puts yellow corners in the right place: </b>" + commandAlignYellowCorners + "<br> <b>Puts corners in place: </b>" + commandSolveFinalCorners;
 
    commandSolveWhiteCross = "";
    commandPositionWhiteCorner1 = "";
@@ -172,7 +263,14 @@ function displaySolve() {
    commandSolveYellowCross = "";
    commandAlignYellowCross = "";
    commandAlignYellowCorners = "";
-   finalCommands = "";
+   commandSolveFinalCorners = "";
+   commandSolveAll = "";
+   commandSolveAllEnd = "";
+
+   var x = document.getElementById("divAroundSolution");
+   x.style.display = "none";
+
+
 }
 
 
