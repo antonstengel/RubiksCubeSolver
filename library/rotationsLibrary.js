@@ -30,6 +30,159 @@ var back = 2;
 var cube = new Array(6);
 
 
+////////////////////////
+//////////OTHER/////////
+////////////////////////
+
+//sets the cube to a solved state
+function solvedState(cube) {
+   for (var s = 0; s < 6; s++){
+      for (var x = 0; x < 3; x++){
+         for (var y = 0; y < 3; y++){
+            switch(s){
+               case front:
+                  cube[s][x][y] = 'B';
+                  break;
+               case up:
+                  cube[s][x][y] = 'Y';
+                  break;
+               case down:
+                  cube[s][x][y] = 'W';
+                  break;
+               case right:
+                  cube[s][x][y] = 'R';
+                  break;
+               case left:
+                  cube[s][x][y] = 'O';
+                  break;
+               case back:
+                  cube[s][x][y] = 'G';
+                  break;
+            } //switch
+         } //s
+      } //x
+   } //y
+} //solvedState
+
+//sets the cube to a randomized state
+function randomize() {
+   solvedState(cube);
+   for (var i=0; i < 20; i++) {
+      var randomNumber = Math.floor(Math.random() * 6); //random number 0-5
+      if (randomNumber == 0) R(cube);
+      else if (randomNumber == 1) L(cube);
+      else if (randomNumber == 2) D(cube);
+      else if (randomNumber == 3) U(cube);
+      else if (randomNumber == 4) F(cube);
+      else if (randomNumber == 5) B(cube);
+   }
+   visualize(cube);
+} //randomize
+
+//visuales cube layout on screen
+function visualize(cube) {
+   for (var s = 0; s < 6; s++) {
+      for (var x = 0; x < 3; x++) {
+         for(var y = 0; y < 3; y++) {
+            //print(cube[s][y][z]); //prints location of cube
+
+            var bigX = 0; //x-location of sides
+            var smallX = 0; //x-location of individual piece
+            var bigY = 0; //y-location of sides
+            var smallY = 0; //y-location of individual piece
+
+            if(s == front){
+               bigX = 120;
+               bigY = 120;
+            }
+            else if(s == up){
+               bigX = 120;
+               bigY = 0;
+            }
+            else if(s == down){
+               bigX = 120;
+               bigY = 240;
+            }
+            else if(s == right){
+               bigX = 240;
+               bigY = 120;
+            }
+            else if(s == left){
+               bigX = 0;
+               bigY = 120;
+            }
+            else{
+               bigX = 360;
+               bigY = 120;
+            }
+
+            if (x == 0) smallX = 0;
+            else if (x == 1) smallX = 40;
+            else smallX = 80;
+
+            if (y == 0) smallY = 0;
+            else if (y == 1) smallY = 40;
+            else smallY = 80;
+
+            strokeWeight(6);
+            if (cube[s][x][y] == 'B') fill(0,0,255);
+            else if (cube[s][x][y] == 'Y') fill(255,255,0);
+            else if (cube[s][x][y] == 'W') fill(255,255,255);
+            else if (cube[s][x][y] == 'R') fill(255,0,0);
+            else if (cube[s][x][y] == 'O') fill(255,150,0);
+            else if (cube[s][x][y] == 'G') fill(0,250,0);
+            rect(smallX + bigX, smallY + bigY, 40, 40, 8);
+         } //y
+      } //x
+   } //s
+} //end of visualize
+
+//something for Henry idk...
+function inputTest(s, x, y, fillColor){
+   console.log("input test");
+   var bigX = 0; //x-location of sides
+   var smallX = 0; //x-location of individual piece
+   var bigY = 0; //y-location of sides
+   var smallY = 0; //y-location of individual piece
+
+   if(s == 0){
+      bigX = 150;
+      bigY = 150;
+   }
+   else if(s == 1){
+      bigX = 150;
+      bigY = 0;
+   }
+   else if(s == 2){
+      bigX = 150;
+      bigY = 300;
+   }
+   else if(s == 3){
+      bigX = 300;
+      bigY = 150;
+   }
+   else if(s == 4){
+      bigX = 0;
+      bigY = 150;
+   }
+   else{
+      bigX = 450;
+      bigY = 150;
+   }
+
+   if (x == 0) smallX = 0;
+   else if (x == 1) smallX = 50;
+   else smallX = 100;
+
+   if (y == 0) smallY = 0;
+   else if (y == 1) smallY = 50;
+   else smallY = 100;
+
+   fill(255,0,0);
+   rect(smallX + bigX, smallY + bigY, 50, 50, 8);
+}
+
+
 //////////////////////////
 //////////FOR FUN/////////
 //////////////////////////

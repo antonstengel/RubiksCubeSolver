@@ -31,8 +31,9 @@ var right = 3;
 var up = 4;
 var down = 5;
 
+var countForNext = -1; //count for the next and previous buttons
 
-var cube = new Array(6);
+var cube = new Array(6); //the cube!
 
 
 ////////////////////////
@@ -47,15 +48,13 @@ function setup() {
       }
    }
 
-
    solvedState(cube);
    visualize(cube);
 
 } //setup
 
 
-
-
+//takes input of ex: "front" and makes F(cube);
 function move(move) {
    if (move == "front") {
       F(cube);
@@ -108,77 +107,74 @@ function move(move) {
    else console.log("SOMETHING FUCKED UP");
 }
 
+//takes input of ex: "front" and makes Fi(cube);
 function reverseMove(move) {
    if (move == "front") {
       Fi(cube);
-      console.log("front, ");
+      console.log("front inverse, ");
    }
    else if (move == "front inverse") {
       F(cube);
-      console.log("front inverse, ");
+      console.log("front, ");
    }
    else if (move == "right") {
       Ri(cube);
-      console.log("right, ");
+      console.log("right inverse, ");
    }
    else if (move == "right inverse") {
       R(cube);
-      console.log("right inverse, ");
+      console.log("right, ");
    }
    else if (move == "left") {
       Li(cube);
-      console.log("left, ");
+      console.log("left inverse, ");
    }
    else if (move == "left inverse") {
       L(cube);
-      console.log("left inverse, ");
+      console.log("left, ");
    }
    else if (move == "back") {
       Bi(cube);
-      console.log("back, ");
+      console.log("back inverse, ");
    }
    else if (move == "back inverse") {
       B(cube);
-      console.log("back inverse, ");
+      console.log("back, ");
    }
    else if (move == "up") {
       Ui(cube);
-      console.log("up, ");
+      console.log("up inverse, ");
    }
    else if (move == "up inverse") {
       U(cube);
-      console.log("up inverse, ");
+      console.log("up, ");
    }
    else if (move == "down") {
       Di(cube);
-      console.log("down, ");
+      console.log("down inverse, ");
    }
    else if (move == "down inverse") {
       D(cube);
-      console.log("down inverse, ");
+      console.log("down, ");
    }
    else console.log("SOMETHING FUCKED UP");
 }
 
-function reverseCube() {
-   for (var i = 0; i < allCommandsArray.length; i ++){
-      reverseMove(allCommandsArray[allCommandsArray.length - 1 - i]);
+
+//function for the next button
+function next() {
+   if (countForNext < allCommandsArray.length - 1){
+      countForNext++;
+      move(allCommandsArray[countForNext]);
+      console.log(countForNext);
+      visualize(cube);
    }
 }
 
-var countForNext = -1;
 
-function next() {
-   countForNext++;
-   move(allCommandsArray[countForNext]);
-   console.log(countForNext);
-   visualize(cube);
-
-}
-
+//function for the back button
 function previous() {
    if (countForNext > -1) {
-
       reverseMove(allCommandsArray[countForNext]);
       console.log(countForNext);
       countForNext --;
@@ -187,16 +183,12 @@ function previous() {
 }
 
 
-
-
-
-
+//function for the input button
 function submitCubeText() {
    let theText = cubeInput.value;
    console.log(theText);
 
    var count = -1;
-
 
    for (var s = 0; s < 6; s++) {
       for (var x = 0; x < 3; x++) {
@@ -210,21 +202,23 @@ function submitCubeText() {
    visualize(cube);
 }
 
-function solveInit(){
-
+//function for the solve button
+function solveInit() {
    solve(cube);
    visualize(cube);
 
    var x = document.getElementById("divBottonToggleSolveSteps");
-   x.style.display = "block";
+   x.style.display = "block"; //displays the toggle solve steps button
 }
 
+//function for the randomize button
 function randomizeInit(){
    randomize(cube);
    visualize(cube);
 }
 
 
+//function for the instructions button
 function showInstructions() {
    var x = document.getElementById("instructionsDiv");
 
@@ -236,6 +230,8 @@ function showInstructions() {
    }
 }
 
+
+//function for the toggle steps button
 function hideSolution() {
    var x = document.getElementById("divAroundSolution");
 
@@ -246,6 +242,8 @@ function hideSolution() {
    }
 }
 
+
+//function called by solve() that prints the instructions
 function displaySolve() {
    document.getElementById("demo").innerHTML = "(If one of the lines are empty it's because that section is already solved) <br> <b> These rotations  solve the white cross: </b> <br>" + commandSolveWhiteCross + "<br> <b> Place the first white corner: </b> <br>" + commandPositionWhiteCorner1 + "<br> <b> Solve the first white corner: </b> <br>" + commandSolveWhiteCorner1 + "<br> <b> Place the second white corner: </b> <br>" + commandPositionWhiteCorner2 + "<br> <b> Solve the second white corner: </b> <br>" + commandSolveWhiteCorner2 + "<br> <b> Place the third white corner: </b> <br>" + commandPositionWhiteCorner3 + "<br> <b> Solve the third white corner: </b> <br>" + commandSolveWhiteCorner3 + "<br> <b> Place the fourth white corner: </b> <br>" + commandPositionWhiteCorner4 + "<br> <b> Solve the fourth white corner: </b> <br>" + commandSolveWhiteCorner4 + "<br> <b>All the steps to solve the middle edge places:</b>" + commandSolveMiddleEdges + "<br> <b> Creates the yellow cross: </b>" + commandSolveYellowCross + "<br> <b> Aligns the yellow cross: </b>" + commandAlignYellowCross + "<br> <b> Puts yellow corners in the right place: </b>" + commandAlignYellowCorners + "<br> <b>Puts corners in place: </b>" + commandSolveFinalCorners;
 
@@ -274,15 +272,12 @@ function displaySolve() {
 }
 
 
+
+
 ////////////////////////
 //////////DRAW//////////
 ////////////////////////
 function draw() {
-
-
-
-
-
 
 
 } //draw
