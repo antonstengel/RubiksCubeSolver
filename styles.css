@@ -13,17 +13,20 @@
     font-family: 'Roboto Slab';
 }
 
+body {
+    width: 100%;
+}
+
 /*
 * — Title of Page —
 */
 h1 {
-    font-size: 30px;
+    font-size: 3em;
     background-color: #C0B283;
     color: #373737;
     text-align: center;
     padding-top: 10px;
     padding-bottom: 10px;
-    margin-bottom: 10px;
 }
 
 
@@ -40,6 +43,7 @@ button {
     color: #F4F4F4;
     opacity: 0.6;
     transition: 0.3s;
+    font-size: 1.2em;
 }
 
 button:hover {
@@ -103,6 +107,13 @@ label {
     display: block;
 }
 
-#divBottonToggleSolveSteps {
+#singleStepSolveText {
+    font-size: 30px;
+}
+
+#oneStepSolutionContainer {
     display: none;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }

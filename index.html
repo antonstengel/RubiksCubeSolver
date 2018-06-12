@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style> body {padding: 0; margin: 0;} </style>
         <script src="library/p5.min.js"></script>
         <script src="library/p5.dom.min.js"></script>
@@ -20,15 +20,17 @@
         <h1 id="headerText">Rubik's Cube Solver</h1>
 
         <form>
-            <div style="text-align:center; margin-bottom:20px;">
-                <div>
-                    <label for="cubeInput">Input your cube: </label>
+            <div style="text-align:center; margin-bottom:20px; background-color:blue;">
+                <div style="background-color:#DCD0C0; padding-top:10px; padding-bottom:10px;">
+                    <label for="cubeInput" style="background-color:#DCD0C0; font-size:1.25em;">Input your cube: </label>
                     <input type="text" id="cubeInput" name="name">
-
-                    <button type="submit" form="cubeInput" value="Submit" onclick="submitCubeText();">Input</button>
-                    <button type="button" onclick="randomizeInit();">Randomize</button>
-                    <button type="button" onclick="solveInit();">Solve</button>
-                    <button type="button" onclick="showInstructions();">Instructions</button>
+                    
+                    <div style="display: inline-block; background-color:#DCD0C0;">
+                        <button type="submit" form="cubeInput" value="Submit" onclick="inputButton();">Input</button>
+                        <button type="button" onclick="randomizeButton();">Randomize</button>
+                        <button type="button" onclick="solveButton();">Solve</button>
+                        <button type="button" onclick="instructionsButton();">Instructions</button>
+                    </div>
                 </div>  
             </div>
         </form>
@@ -44,16 +46,14 @@
             <p id="demo"></p>
         </div>
         
-        <div id="divBottonToggleSolveSteps" style="text-align:center; margin:auto; margin-bottom:20px; width: 212px;">
-            <div style="width:212px;">
-                <button type="button" id="hideSolutions" onclick="hideSolution();">Toggle Steps to Solve Cube</button>
-            </div>
+        <div id="oneStepSolutionContainer">
+            <button type="button" id="previous" onclick="previousButton();">Previous Step</button>
+            <button type="button" onclick="toggleSolutionButton();">Show All Steps to Solve Cube</button>
+            <button type="button" id="next" onclick="nextButton();">Next Step</button>
+
+            <p id="singleStepSolveText"></p>
         </div>
         
-        <button type="button" id="previous" onclick="previous();">Previous</button>
-        
-        <button type="button" id="next" onclick="next();">Next</button>
-                
         <script>
             document.addEventListener("click", inputTest);
         </script>

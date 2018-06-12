@@ -139,7 +139,7 @@ function visualize(cube) {
 
 //something for Henry idk...
 function inputTest(s, x, y, fillColor){
-   console.log("input test");
+   //console.log("input test");
    var bigX = 0; //x-location of sides
    var smallX = 0; //x-location of individual piece
    var bigY = 0; //y-location of sides

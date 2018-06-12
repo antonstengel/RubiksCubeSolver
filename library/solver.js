@@ -55,6 +55,7 @@ var allCommandsArray = [];
 //////////SOLVE WHITE CROSS/////////
 ///////////////////////////////////
 
+
 //single rotation of cube given number -1-11, 11-givenNumber is the reverse move
 function singleRotation(number){
    if (number == 0) R(cube);
@@ -642,7 +643,7 @@ function solveCorners(cube) {
          U(cube);
          Li(cube);
          //console.log("left, up, up, left inverse, up inverse, left, up, front inverse (third corner solved)")
-         var txt = "left, up, up, left inverse, up inverse, left, up, front inverse, ";
+         var txt = "left, up, up, left inverse, up inverse, left, up, left inverse, ";
          commandSolveWhiteCorner3 += txt;
       }
    }
@@ -1842,15 +1843,14 @@ function lastMove(cube) {
    }
 }
 
-
 ////////////////////////
 //////////OTHER/////////
 ////////////////////////
 
 //solves the cube!
-function solve() {
-   cubeCopy = new Array(6);
+function solve(){
 
+   var cubeCopy = new Array(6);
    for (var s = 0; s < 6; s++) { //creates cube, a 6x3x3 array
       cubeCopy[s] = new Array(3);
       for (var x = 0; x < 3; x++) {
@@ -1875,15 +1875,6 @@ function solve() {
    lastMove(cube);
    //visualize(cube);
 
-   commandSolveAll += commandSolveWhiteCross + commandPositionWhiteCorner1 + commandSolveWhiteCorner1 + commandPositionWhiteCorner2 + commandSolveWhiteCorner2 + commandPositionWhiteCorner3 + commandSolveWhiteCorner3 + commandPositionWhiteCorner4 + commandSolveWhiteCorner4 + commandSolveAllEnd;
-
-   allCommandsArray = commandSolveAll.split(", ");
-
-   //console.log(commandSolveAll);
-   //console.log(allCommandsArray);
-
-   //reverseCube();
-
    for (var s = 0; s < 6; s++) {
       for (var x = 0; x < 3; x++) {
          for (var y = 0; y < 3; y++) {
@@ -1892,7 +1883,14 @@ function solve() {
       }
    }
 
-   displaySolve();
+   commandSolveAll += commandSolveWhiteCross + commandPositionWhiteCorner1 + commandSolveWhiteCorner1 + commandPositionWhiteCorner2 + commandSolveWhiteCorner2 + commandPositionWhiteCorner3 + commandSolveWhiteCorner3 + commandPositionWhiteCorner4 + commandSolveWhiteCorner4 + commandSolveAllEnd;
 
-   visualize(cube);
+   allCommandsArray = commandSolveAll.split(", ");
+
+
+
+   console.log(commandSolveAll);
+   console.log(allCommandsArray);
+
+   displaySolve();
 }
