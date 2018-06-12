@@ -391,8 +391,8 @@ function displaySolve() {
 
 
 function mousePressed() {
-      console.log(mouseX+", "+mouseY);
-
+   console.log(mouseX+", "+mouseY);
+   if(mouseY >= 0){
          for(var s=0; s<6; s++){
 
             if(s==0){//FRONT
@@ -510,12 +510,13 @@ function mousePressed() {
       }
       //fill(fillVal);
       noFill();
-      strokeWeight(10);
-      //stroke(150,150,0);
-      stroke(0);
+      strokeWeight(6);
+      stroke(150,150,0);
+      //stroke(0);
       rect(faceletX, faceletY, 40, 40, 8);
       stroke(0,0,0);
       console.log(facelet);
+   }
 } //mousePressed
 
 
